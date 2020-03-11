@@ -1,10 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './components/App';
-import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
+import createStore from './store';
+import { createBrowserHistory } from 'history';
+import {ThemeProvider} from 'react-jss';
+import { lightTheme } from './styles';
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export const history = createBrowserHistory();
+const store = createStore(history);
 
-serviceWorker.unregister();
+ReactDOM.render(
+    <Provider store={store}>
+        <ThemeProvider theme={lightTheme}>
+            <ConnectedRouter history={history}>
+                <App />
+            </ConnectedRouter>
+        </ThemeProvider>
+    </Provider>
+
+    , document.getElementById('root'));
+
