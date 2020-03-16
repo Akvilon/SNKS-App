@@ -5,17 +5,18 @@ import { Header } from "../../components/Header";
 
 type PageProps = {
   title: string;
+  withHeader?: boolean;
 };
 
-export const Page: React.FC<PageProps> = ({ title, children }) => {
+export const Page: React.FC<PageProps> = ({ title, children, withHeader }) => {
   return (
     <>
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <Header />
+      {withHeader ? <Header /> : null}
       <main>
-          {children}
+        {children}
       </main>
     </>
   );

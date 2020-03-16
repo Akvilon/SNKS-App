@@ -3,10 +3,10 @@ import { Page } from '../../utils/Page';
 import { RouteComponentProps } from 'react-router';
 
 
-export const AboutPage = (props: RouteComponentProps) => {
+export const NotFoundPage = (props: RouteComponentProps) => {
     return (
-        <Page title={'SNKS | ABOUT'} withHeader={true}> 
-            <h1>Hello from ABOUT</h1>
+        <Page title={'SNKS | 404'}>
+            <h1>Hello from 404</h1>
         </Page>
     )
 }

@@ -6,9 +6,13 @@ export enum PATHES {
     SNEAKERS_MEN='/men',
     SNEAKERS_WOMEN='/women',
     CONTACTS='/contacts',
-    CART='/cart'
+    CART='/cart',
+    PROFILE='/profile',
+    SIGNIN='/signin',
+    NOT_FOUND='/404',
+    REDIRECT='/*'
 }
 
 export default Object.freeze({
-    name: "TEST"
+    baseUrl: process.env.REACT_APP_BASE_URL
 });

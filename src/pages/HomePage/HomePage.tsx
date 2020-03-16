@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 
 export const HomePage = (props: RouteComponentProps) => {
     return (
-        <Page title={'SNKS | HOME'}>
+        <Page title={'SNKS | HOME'} withHeader={true}>
             <h1>Hello from HOME</h1>
         </Page>
     )

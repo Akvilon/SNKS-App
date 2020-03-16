@@ -5,6 +5,7 @@ export type ThemeColors = {
     background: string;
     mainShadow: string;
     text: string;
+    textHover: string;
     contrastText: string;
 }
 

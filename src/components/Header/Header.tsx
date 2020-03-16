@@ -19,12 +19,12 @@ const Header = (props: HeaderProps) => {
         <Link to={'/About'}>About</Link>
         <Link to={'/men'}>Men</Link>
         <Link to={'/women'}>Women</Link>
-        <Link to={'/'}>Contacts</Link>
+        <Link to={'/contacts'}>Contacts</Link>
         <Link to={'/cart'}><i className="fas fa-cart-plus"></i></Link>
-        
       </nav>
       <div className={classes.signIn}>
-        <button>Sign in</button>
+        <Link to={'/profile'}>Profile</Link>
+        <Link to={'/signin'}>Sign in</Link>
       </div>
     </div>
   );

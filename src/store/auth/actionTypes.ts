@@ -1,0 +1,4 @@
+
+export enum ACTION_TYPES {
+    SET_IS_SIGNED_IN='@@AUTH/IS_SIGNED_IN',
+}

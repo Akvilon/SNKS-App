@@ -1,6 +1,6 @@
 import { Theme } from "../../styles";
 import { createUseStyles } from "react-jss";
-import { getMainBackground, getMainShadow, getMainText } from "../../styles/styles.selectors";
+import { getMainBackground, getMainShadow, getMainText, getMainTextHover } from "../../styles/selectors.styles";
 
 export default createUseStyles((theme: Theme) => ({
     header: {
@@ -12,15 +12,21 @@ export default createUseStyles((theme: Theme) => ({
         '& nav': {
             display: 'flex',
             marginLeft: 'auto',
-            marginRight: '15px',
-            '& a': {
-                display: 'flex',
-                alignItems: 'center',
-                height: '100%',
-                padding: '0px 15px',
-                fontWeight: 'bold',
-                color: getMainText(theme)
-            }
+            paddingRight: '30px',
+        },
+        '& a': {
+            display: 'flex',
+            alignItems: 'center',
+            height: '100%',
+            padding: '0px 30px',
+            fontSize: '1.250rem',
+            fontWeight: 'bold',
+            color: getMainText(theme),
+            transition: '.3s',
+            '&:hover': {
+                color: getMainTextHover(theme),
+                transition: '.3s',
+            },
         },
     },
     logo: {
@@ -28,7 +34,7 @@ export default createUseStyles((theme: Theme) => ({
         alignItems: 'center',
         marginLeft: '30px',
         '& img': {
-            width: '80px'
+            width: '100px'
         },
     },
     signIn: {
@@ -37,6 +43,7 @@ export default createUseStyles((theme: Theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         borderLeft: `1px solid ${getMainText(theme)}`,
+        padding: '0px 30px',
     }
 }))
 

@@ -1,6 +1,10 @@
 import { compose, combineReducers, createStore, applyMiddleware } from "redux";
 import {connectRouter, routerMiddleware} from 'connected-react-router';
 import {History} from 'history';
+import sneakers , { SneakersState, sneakersMiddlewares } from "./sneakers";
+import auth, { AuthState } from "./auth";
+
+
 
 // @ts-ignore
 const composeEnhancers = (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
@@ -9,12 +13,14 @@ const composeEnhancers = (process.env.NODE_ENV !== 'production' && window.__REDU
     : compose;
 
 export interface AppState {
-	
+    auth: AuthState,
+	sneakers: SneakersState
 }
 
 const rootReducer = (history: History) => combineReducers(
     {
-	    
+        auth,
+	    sneakers,
         router: connectRouter(history)
     }
 );
@@ -26,7 +32,7 @@ export default (history: History) => {
         composeEnhancers(
             applyMiddleware(
                 routerMiddleware(history),
-                
+                // sneakersMiddlewares
             )
         )
     );
