@@ -9,10 +9,10 @@ type SneakersProps = {
 class SneakersListContainer extends React.PureComponent<SneakersProps> {
     
     componentDidMount() {
-        const {gender} = this.props;
-        ApiService.getSneakersByGender(gender).then(res => console.log(res))
+        // const {gender} = this.props;
+        // ApiService.getSneakersByGender(gender).then(res => console.log(res))
 
-        ApiService.getBrand(gender, 'Puma').then(res => console.log(res));
+        // ApiService.getBrand(gender, 'Puma').then(res => console.log(res));
     }
 
     render() {

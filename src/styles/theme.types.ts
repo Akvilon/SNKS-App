@@ -1,12 +1,17 @@
 
 
 export type ThemeColors = {
-    main: string;
-    background: string;
-    mainShadow: string;
-    text: string;
-    textHover: string;
-    contrastText: string;
+    background: string,
+    btnBackground: string,
+    btnHoverBackground: string,
+    border: string,
+    btnBorder: string,
+    btnHoverBorder: string,
+    modalLayout: string,
+    mainShadow: string,
+    text: string,
+    textHover: string,
+    contrastText: string,
 }
 
 

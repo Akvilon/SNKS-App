@@ -6,7 +6,7 @@ import { getIsSignedIn } from "../../store/auth";
 import { AppState } from "../../store";
 
 
-export type StateProps = {
+type StateProps = {
     isSignedIn: boolean;
 }
 

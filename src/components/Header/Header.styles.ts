@@ -1,14 +1,19 @@
 import { Theme } from "../../styles";
 import { createUseStyles } from "react-jss";
-import { getMainBackground, getMainShadow, getMainText, getMainTextHover } from "../../styles/selectors.styles";
+import { 
+    getBackgroundStyle, 
+    getMainShadowStyle, 
+    getTextStyle, 
+    getTextHoverStyle, 
+    getBorderStyle} from "../../styles/selectors.styles";
 
 export default createUseStyles((theme: Theme) => ({
     header: {
         display: 'flex',
         width: '100%',
         height: '80px',
-        background: getMainBackground(theme),
-        boxShadow: getMainShadow(theme),
+        background: getBackgroundStyle(theme),
+        boxShadow: getMainShadowStyle(theme),
         '& nav': {
             display: 'flex',
             marginLeft: 'auto',
@@ -21,10 +26,10 @@ export default createUseStyles((theme: Theme) => ({
             padding: '0px 30px',
             fontSize: '1.250rem',
             fontWeight: 'bold',
-            color: getMainText(theme),
+            color: getTextStyle(theme),
             transition: '.3s',
             '&:hover': {
-                color: getMainTextHover(theme),
+                color: getTextHoverStyle(theme),
                 transition: '.3s',
             },
         },
@@ -42,7 +47,7 @@ export default createUseStyles((theme: Theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        borderLeft: `1px solid ${getMainText(theme)}`,
+        borderLeft: `1px solid ${getBorderStyle(theme)}`,
         padding: '0px 30px',
     }
 }))

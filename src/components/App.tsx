@@ -10,13 +10,13 @@ const App = () => {
   const theme = useTheme()
   const classes = useStyles({theme})
   return (
-    <div className="App">
+    <>
       <Switch>
         {
           routes.map((route: AppRoute) => route.isProtected ? <ProtectedRoute key={uuidv4()} {...route}/> : <Route key={uuidv4()} {...route}/>)
         }
       </Switch>
-    </div>
+    </>
   );
 }
 

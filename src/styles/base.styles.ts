@@ -1,6 +1,5 @@
 import { Theme } from "./theme.types";
 
-
 export default (theme: Theme) => ({
     '@global': {
         '*': {
@@ -12,6 +11,7 @@ export default (theme: Theme) => ({
         },
         html: {
             minHeight: '100vh',
+            width: '100vw',
             fontFamily: theme.typo.fontFamily,
             fontSize: theme.typo.fontSize,
             fontWeight: 400,
@@ -30,7 +30,9 @@ export default (theme: Theme) => ({
             textDecoration: 'none',
         },
         body: {
+            height: '100vh',
+            width: '100vw',
             minHeight: '100vh'
-        }
-    }
+        },
+    },
 })
