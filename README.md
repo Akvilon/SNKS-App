@@ -3,6 +3,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Sneakers shop (pet app):
 
-Routing - React Router
-State Manager - React Redux
+Routing - React Router,
+State Manager - React Redux,
 Styles - JSS
