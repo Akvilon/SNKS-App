@@ -3,7 +3,7 @@ import { Theme } from "../../styles";
 import { relative } from "path";
 import gignInBg from '../../assets/gignin_bg.jpg';
 import signInBg2 from '../../assets/signin_bg2.jpg';
-import { getModalLayoutStyle, getMainShadowStyle, getBackgroundStyle } from "../../styles/selectors.styles";
+import { getModalLayoutStyle, getMainShadowStyle, getBackgroundStyle, getBorderStyle, getTextStyle, getMainGradientStyle } from "../../styles/selectors.styles";
 
 export default createUseStyles((theme: Theme) => ({
     signIn: {
@@ -47,6 +47,7 @@ export default createUseStyles((theme: Theme) => ({
         backdropFilter: 'blur(5px)'
     },
     signInForm: {
+        position: 'relative',
         minWidth: '400px',
         padding: '60px',
         boxShadow: getMainShadowStyle(theme),
@@ -54,13 +55,24 @@ export default createUseStyles((theme: Theme) => ({
         display: 'flex',
         flexDirection: 'column',
         background: getBackgroundStyle(theme),
-        '& button': {
+        '& form button': {
             marginTop: '30px',
         }
     },
+    signInHeader: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& svg': {
+            fontSize: '3rem',
+        },
+        '& h2, p': {
+            marginTop: '15px'
+        },
+    },
     signInFormInput: {
         height: '40px',
-        marginBottom: '40px',
+        margin: '40px 0px',
         '& p': {
             color: '#1F1C1C',
             fontWeight: 'bold',
@@ -76,4 +88,11 @@ export default createUseStyles((theme: Theme) => ({
             boxShadow: getMainShadowStyle(theme)
         },
     },
+    signInRegister: {
+        display: 'flex',
+        marginTop: '30px',
+        '& button': {
+            marginLeft: '10px'
+        }
+    }
 }))

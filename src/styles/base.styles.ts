@@ -1,4 +1,5 @@
 import { Theme } from "./theme.types";
+import { getTextStyle } from ".";
 
 export default (theme: Theme) => ({
     '@global': {
@@ -15,6 +16,7 @@ export default (theme: Theme) => ({
             fontFamily: theme.typo.fontFamily,
             fontSize: theme.typo.fontSize,
             fontWeight: 400,
+            color: getTextStyle(theme),
             '-ms-text-size-adjust': '100%',
             '-webkit-text-size-adjust': '100%',
             '-webkit-font-smoothing': 'antialiased'

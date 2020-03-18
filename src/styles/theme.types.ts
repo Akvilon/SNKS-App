@@ -7,6 +7,7 @@ export type ThemeColors = {
     border: string,
     btnBorder: string,
     btnHoverBorder: string,
+    mainGradient: string,
     modalLayout: string,
     mainShadow: string,
     text: string,
