@@ -1,13 +1,18 @@
 import { createUseStyles } from "react-jss";
-import { Theme, baseFontSize, getTextHoverStyle } from "../../styles";
-import {
+import { 
+    Theme, 
+    baseFontSize,
     getTextStyle,
     getContrastTextStyle,
     getBackgroundStyle,
     getBtnBackgroundStyle,
     getBtnHoverBackgroundStyle,
-    getBtnHoverBorderStyle
+    getBtnHoverBorderStyle, 
+    getTextHoverStyle, 
+    getBorderStyle, 
+    getBtnBorderStyle 
 } from "../../styles";
+
 
 
 export enum ButtonVariant {
@@ -21,7 +26,7 @@ export default createUseStyles((theme: Theme) => ({
         height: '38px',
         width: '100%',
         borderRadius: '4px',
-        border: 'none',
+        border: `1px solid ${getBtnBorderStyle(theme)}`,
         cursor: 'pointer',
         fontWeight: 'bold',
         fontSize: '1rem',
@@ -35,7 +40,6 @@ export default createUseStyles((theme: Theme) => ({
         }
     },
     defaultBtn: {
-        color: getTextStyle(theme),
         background: getBackgroundStyle(theme),
         '&:hover': {
             border: getBtnHoverBorderStyle(theme)
@@ -45,13 +49,14 @@ export default createUseStyles((theme: Theme) => ({
         color: getContrastTextStyle(theme),
         background: getBtnBackgroundStyle(theme),
         '&:hover': {
-            color: getContrastTextStyle(theme),
             background: getBtnHoverBackgroundStyle(theme),
+            border:  getBtnHoverBorderStyle(theme)
         }
     },
     textBtn: {
         height: '100%',
         width: 'auto',
+        border: 'none',
         borderRadius: '0px',
         background: 'none',
         '&:hover': {

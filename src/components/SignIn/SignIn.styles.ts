@@ -1,5 +1,5 @@
 import { createUseStyles } from "react-jss";
-import { Theme } from "../../styles";
+import { Theme, secondaryFontSize } from "../../styles";
 import { relative } from "path";
 import gignInBg from '../../assets/gignin_bg.jpg';
 import signInBg2 from '../../assets/signin_bg2.jpg';
@@ -47,16 +47,15 @@ export default createUseStyles((theme: Theme) => ({
         backdropFilter: 'blur(5px)'
     },
     signInForm: {
-        position: 'relative',
-        minWidth: '400px',
-        padding: '60px',
+        width: '400px',
+        padding: '40px',
         boxShadow: getMainShadowStyle(theme),
         borderRadius: '4px',
         display: 'flex',
         flexDirection: 'column',
         background: getBackgroundStyle(theme),
         '& form button': {
-            marginTop: '30px',
+            marginTop: '60px',
         }
     },
     signInHeader: {
@@ -64,7 +63,7 @@ export default createUseStyles((theme: Theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         '& svg': {
-            fontSize: '3rem',
+            fontSize: '2.5rem',
         },
         '& h2, p': {
             marginTop: '15px'
@@ -72,21 +71,7 @@ export default createUseStyles((theme: Theme) => ({
     },
     signInFormInput: {
         height: '40px',
-        margin: '40px 0px',
-        '& p': {
-            color: '#1F1C1C',
-            fontWeight: 'bold',
-            fontSize: '1rem',
-            marginBottom: '5px'
-        },
-        '& input': {
-            height: '100%',
-            width: '100%',
-            borderRadius: '4px',
-            border: 'none',
-            paddingLeft: '15px',
-            boxShadow: getMainShadowStyle(theme)
-        },
+        marginTop: '40px',
     },
     signInRegister: {
         display: 'flex',
@@ -94,5 +79,39 @@ export default createUseStyles((theme: Theme) => ({
         '& button': {
             marginLeft: '10px'
         }
+    },
+    registerForm: {
+        width: '400px',
+        padding: '40px',
+        boxShadow: getMainShadowStyle(theme),
+        borderRadius: '4px',
+        display: 'flex',
+        flexDirection: 'column',
+        background: getBackgroundStyle(theme),
+        '& form button': {
+            marginTop: '60px',
+        }
+    },
+    registerHeader: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& svg': {
+            fontSize: '2.5rem',
+        },
+        '& h2, p': {
+            marginTop: '15px'
+        },
+        '& p:last-child': {
+            textAlign: 'center',
+            fontSize: secondaryFontSize
+        }
+    },
+    registerFormInput: {
+        height: '40px',
+        marginTop: '40px',
+    },
+    backToSignIn: {
+        marginTop: '30px'
     }
 }))
