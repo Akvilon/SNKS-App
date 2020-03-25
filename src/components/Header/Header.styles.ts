@@ -17,7 +17,6 @@ export default createUseStyles((theme: Theme) => ({
         '& nav': {
             display: 'flex',
             marginLeft: 'auto',
-            paddingRight: '30px',
         },
         '& a': {
             display: 'flex',
@@ -42,13 +41,12 @@ export default createUseStyles((theme: Theme) => ({
             width: '100px'
         },
     },
-    signIn: {
-        minWidth: '120px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+    profileLink: {
         borderLeft: `1px solid ${getBorderStyle(theme)}`,
-        padding: '0px 30px',
+        marginLeft: '30px',
+        '& a':{
+            padding: '0px 60px'
+        }
     }
 }))
 

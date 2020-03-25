@@ -5,25 +5,26 @@ import useStyles, { ButtonVariant } from './Button.styles';
 type ButtonProps = {
     type?: any,
     variant: string,
-    onClick: (e: React.MouseEvent | React.KeyboardEvent) => void
+    disabled?: boolean,
+    onClick?: (e: React.MouseEvent | React.KeyboardEvent) => void
 }
 
-const Button: React.FC<ButtonProps> = ({ variant, type, onClick, children }) => {
+const Button: React.FC<ButtonProps> = ({ variant, type, onClick, disabled, children }) => {
     const theme = useTheme();
     const classes = useStyles({ theme });
     let btnClass;
     
     if(variant === ButtonVariant.PRIMARY) {
-        btnClass = `${classes.snksButton} ${classes.primaryBtn}`
+        btnClass = disabled ? `${classes.snksButton} ${classes.primaryBtn} ${classes.primaryBtnDisabled}` : `${classes.snksButton} ${classes.primaryBtn}`
     }else if(variant === ButtonVariant.TEXT) {
-        btnClass = `${classes.snksButton} ${classes.textBtn}`
+        btnClass = disabled ? `${classes.snksButton} ${classes.textBtn} ${classes.teaxtBtnDisabled}` : `${classes.snksButton} ${classes.textBtn}`
     }else {
-        btnClass = `${classes.snksButton} ${classes.defaultBtn}`
+        btnClass = disabled ? `${classes.snksButton} ${classes.defaultBtn} ${classes.defaultBtnDisabled}` : `${classes.snksButton} ${classes.defaultBtn}`
     }
 
     return (
         <>
-            <button className={btnClass} type={type} onClick={onClick}>
+            <button className={btnClass} type={type} disabled={disabled} onClick={onClick}>
                 {children}
             </button>
         </>

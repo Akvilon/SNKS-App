@@ -3,15 +3,15 @@ import { Theme, baseFontSize, getMainShadowStyle, getTextStyle } from "../../sty
 
 
 export default createUseStyles((theme: Theme) => ({
-    snksInputLabel:{
+    snksInputLabel: {
         fontWeight: 'bold',
     },
     snksInput: {
-        height: '100%',
-            width: '100%',
-            borderRadius: '4px',
-            border: 'none',
-            paddingLeft: '15px',
-            boxShadow: getMainShadowStyle(theme)
+        height: '40px',
+        width: '100%',
+        borderRadius: '4px',
+        border: 'none',
+        paddingLeft: '15px',
+        boxShadow: getMainShadowStyle(theme)
     }
 }))

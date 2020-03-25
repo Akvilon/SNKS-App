@@ -5,13 +5,15 @@ import useStyles from './Input.styles';
 type InputProps = {
     label: string,
     type: string,
+    value?: string,
     id?: string,
     name: string,
     placeholder?: string,
+    onBlur: (e:React.FocusEvent) => void,
     onChange: (e: React.ChangeEvent) => void
 }
 
-const Input: React.FC<InputProps> = ({ label, type, id, name, placeholder, onChange }) => {
+const Input: React.FC<InputProps> = ({ label, type, value, id, name, placeholder, onBlur, onChange }) => {
     const theme = useTheme();
     const classes = useStyles({ theme });
 
@@ -21,9 +23,11 @@ const Input: React.FC<InputProps> = ({ label, type, id, name, placeholder, onCha
             <input
                 className={classes.snksInput}
                 type={type}
+                value={value}
                 id={id}
                 name={name} 
                 placeholder={placeholder}
+                onBlur={onBlur}
                 onChange={onChange}/>
         </>
     )

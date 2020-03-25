@@ -8,11 +8,11 @@ type HeaderProps = {};
 
 const Header = (props: HeaderProps) => {
   const theme = useTheme()
-  const classes = useStyles({theme})
+  const classes = useStyles({ theme })
   return (
     <div className={classes.header}>
       <div className={classes.logo}>
-        <img src={logo} alt="logo"/>
+        <img src={logo} alt="logo" />
       </div>
       <nav>
         <Link to={'/'}>Home</Link>
@@ -21,14 +21,13 @@ const Header = (props: HeaderProps) => {
         <Link to={'/women'}>Women</Link>
         <Link to={'/contacts'}>Contacts</Link>
         <Link to={'/cart'}><i className="fas fa-cart-plus"></i></Link>
+        <div className={classes.profileLink}>
+          <Link to={'/profile'}>Profile</Link>
+        </div>
       </nav>
-      <div className={classes.signIn}>
-        <Link to={'/profile'}>Profile</Link>
-        <Link to={'/signin'}>Sign in</Link>
-      </div>
     </div>
   );
 };
 
 
-export {Header};
+export { Header };

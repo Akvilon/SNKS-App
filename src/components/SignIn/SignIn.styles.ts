@@ -3,7 +3,7 @@ import { Theme, secondaryFontSize } from "../../styles";
 import { relative } from "path";
 import gignInBg from '../../assets/gignin_bg.jpg';
 import signInBg2 from '../../assets/signin_bg2.jpg';
-import { getModalLayoutStyle, getMainShadowStyle, getBackgroundStyle, getBorderStyle, getTextStyle, getMainGradientStyle } from "../../styles/selectors.styles";
+import { getModalLayoutStyle, getMainShadowStyle, getBackgroundStyle, getBorderStyle, getTextStyle, getMainGradientStyle, getInsetShadowStyle } from "../../styles/selectors.styles";
 
 export default createUseStyles((theme: Theme) => ({
     signIn: {
@@ -55,13 +55,14 @@ export default createUseStyles((theme: Theme) => ({
         flexDirection: 'column',
         background: getBackgroundStyle(theme),
         '& form button': {
-            marginTop: '60px',
+            marginTop: '50px',
         }
     },
     signInHeader: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        marginBottom: '15px',
         '& svg': {
             fontSize: '2.5rem',
         },
@@ -69,9 +70,17 @@ export default createUseStyles((theme: Theme) => ({
             marginTop: '15px'
         },
     },
+    signInIcon: {
+        height: '60px',
+        width: '60px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '100%',
+        boxShadow: getInsetShadowStyle(theme),
+    },
     signInFormInput: {
-        height: '40px',
-        marginTop: '40px',
+        marginTop: '15px',
     },
     signInRegister: {
         display: 'flex',
@@ -89,13 +98,14 @@ export default createUseStyles((theme: Theme) => ({
         flexDirection: 'column',
         background: getBackgroundStyle(theme),
         '& form button': {
-            marginTop: '60px',
+            marginTop: '50px',
         }
     },
     registerHeader: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        marginBottom: '15px',
         '& svg': {
             fontSize: '2.5rem',
         },
@@ -107,11 +117,21 @@ export default createUseStyles((theme: Theme) => ({
             fontSize: secondaryFontSize
         }
     },
+    registerIcon: {
+        height: '60px',
+        width: '60px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '100%',
+        boxShadow: getInsetShadowStyle(theme),
+    },
     registerFormInput: {
-        height: '40px',
-        marginTop: '40px',
+        marginTop: '15px',
     },
     backToSignIn: {
+        display: 'flex',
+        justifyContent: 'center',
         marginTop: '30px'
     }
 }))

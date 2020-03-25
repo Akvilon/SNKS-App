@@ -1,29 +1,34 @@
 import { createUseStyles } from "react-jss";
-import { 
-    Theme, 
+import {
+    Theme,
     baseFontSize,
     getTextStyle,
     getContrastTextStyle,
     getBackgroundStyle,
     getBtnBackgroundStyle,
     getBtnHoverBackgroundStyle,
-    getBtnHoverBorderStyle, 
-    getTextHoverStyle, 
-    getBorderStyle, 
-    getBtnBorderStyle 
+    getBtnHoverBorderStyle,
+    getTextHoverStyle,
+    getBorderStyle,
+    getBtnBorderStyle,
+    getBtnDisabledBackgroundStyle,
+    getBtnDisabledBorderStyle,
+    getBtnDisabledHoverBackgroundStyle,
+    getBtnDisabledHoverBorderStyle,
+    getTextDisabledStyle
 } from "../../styles";
 
 
 
 export enum ButtonVariant {
-    DEFAULT='defaultBtn',
-    PRIMARY='primaryBtn',
-    TEXT='textBtn'
+    DEFAULT = 'defaultBtn',
+    PRIMARY = 'primaryBtn',
+    TEXT = 'textBtn'
 }
 
 export default createUseStyles((theme: Theme) => ({
     snksButton: {
-        height: '38px',
+        height: '42px',
         width: '100%',
         borderRadius: '4px',
         border: `1px solid ${getBtnBorderStyle(theme)}`,
@@ -40,9 +45,23 @@ export default createUseStyles((theme: Theme) => ({
         }
     },
     defaultBtn: {
+        border: `1px solid ${getBtnBorderStyle(theme)}`,
         background: getBackgroundStyle(theme),
+        color: getTextStyle(theme),
         '&:hover': {
-            border: getBtnHoverBorderStyle(theme)
+            border: `1px solid ${getBtnHoverBorderStyle(theme)}`,
+            color: getTextHoverStyle(theme),
+        }
+    },
+    defaultBtnDisabled: {
+        border: `1px solid ${getBtnDisabledBorderStyle(theme)}`,
+        background: getBackgroundStyle(theme),
+        color: getTextDisabledStyle(theme),
+        cursor: 'default',
+        '&:hover': {
+            border: `1px solid ${getBtnDisabledBorderStyle(theme)}`,
+            background: getBackgroundStyle(theme),
+            color: getTextDisabledStyle(theme),
         }
     },
     primaryBtn: {
@@ -50,7 +69,18 @@ export default createUseStyles((theme: Theme) => ({
         background: getBtnBackgroundStyle(theme),
         '&:hover': {
             background: getBtnHoverBackgroundStyle(theme),
-            border:  getBtnHoverBorderStyle(theme)
+            border: getBtnHoverBorderStyle(theme)
+        },
+    },
+    primaryBtnDisabled: {
+        background: getBtnDisabledBackgroundStyle(theme),
+        border: getBtnDisabledBorderStyle(theme),
+        color: getTextDisabledStyle(theme),
+        cursor: 'default',
+        '&:hover': {
+            background: getBtnDisabledHoverBackgroundStyle(theme),
+            border: getBtnDisabledHoverBorderStyle(theme),
+            color: getTextDisabledStyle(theme),
         }
     },
     textBtn: {
@@ -61,6 +91,13 @@ export default createUseStyles((theme: Theme) => ({
         background: 'none',
         '&:hover': {
             color: getTextHoverStyle(theme)
+        }
+    },
+    teaxtBtnDisabled: {
+        color: getTextDisabledStyle(theme),
+        cursor: 'default',
+        '&:hover': {
+            color: getTextDisabledStyle(theme),
         }
     }
 }))
