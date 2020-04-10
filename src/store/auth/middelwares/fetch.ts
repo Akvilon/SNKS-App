@@ -1,22 +1,29 @@
-import { Store, MiddlewareAPI, Middleware } from "redux";
+import { MiddlewareAPI, Middleware } from "redux";
 import { Action } from "../../types";
 import { ACTION_TYPES } from "../actionTypes";
 import { ApiService } from "../../../services/ApiService";
-import { verifySignInValidation } from "..";
-import { setLocalStorage } from "../../../utils/storage";
+import { verifySignInValidation, setActiveUser } from "..";
 import { push } from "connected-react-router";
-import * as CONST from '../../../constants';
+import { User } from "../../../models/User";
 
-
-export const fetchMiddleware: Middleware = ({ getState, dispatch }: MiddlewareAPI) => (next: (action: Action<any>) => void) => (action: Action<any>) => {
+const fetchMiddleware: Middleware = ({ getState, dispatch }: MiddlewareAPI) => (next: (action: Action<any>) => void) => async (action: Action<any>) => {
     if (action.type === ACTION_TYPES.GET_USER_BY_EMAIL) {
         const values = action.payload;
-        ApiService.getUserByEmail(values.email).then(user => dispatch(verifySignInValidation(user, values)))
-    } else if (action.type === ACTION_TYPES.ADD_USER) {
-        ApiService.addUser(action.payload)
-        setLocalStorage(CONST.default.IS_SIGNED_IN, 'true')
-        dispatch(push('/profile'));
+        await ApiService.getUserByEmail(values.email).then(user => dispatch(verifySignInValidation(user, values)))
+    }
+    else if (action.type === ACTION_TYPES.ADD_USER) {
+        await ApiService.addUser(action.payload).then(() => dispatch(push('/profile')))
+    }
+    else if (action.type === ACTION_TYPES.GET_ACTIVE_USER) {
+        await ApiService.getActiveUser().then(activeUser => dispatch(setActiveUser(activeUser))).then(() => console.log('get activ and set it'))
+    }
+    else if (action.type === ACTION_TYPES.LOG_OUT) {
+        const user = action.payload[0]
+        await ApiService.toggleActiveUser(user)
+            .then(() => dispatch(push('/')))
     }
 
     next(action);
 }
+
+export const fetchMiddlewares = [fetchMiddleware];

@@ -1,3 +1,6 @@
 import { AppState } from "..";
+import { User } from "../../models/User";
 
-export const getIsSignedIn = (state: AppState) => state.auth.isSignedIn;
+export const getUserListSelector = (state: AppState): Array<User> => state.auth.userList;
+export const getActiveUserSelector = (state: AppState): Array<User> => state.auth.activeUser;
+export const getSignInValidationErrorSelector = (state: AppState): string => state.auth.signInValidationError;

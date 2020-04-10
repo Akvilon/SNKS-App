@@ -1,4 +1,4 @@
-import { fetchMiddleware } from "./fetch";
+import { fetchMiddlewares } from "./fetch";
 import { signInValidationErrorsMiddleware } from "./signInValidationErrors";
 
-export const authMiddlewares = [fetchMiddleware, signInValidationErrorsMiddleware];
+export const authMiddlewares = [...fetchMiddlewares, signInValidationErrorsMiddleware];
