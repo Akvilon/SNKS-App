@@ -1,4 +1,14 @@
 
+export type Pagination = {
+    currentPage: string,
+    lastPage: string
+    limit: number,
+    nextPage: string | null
+    order: [string]
+    page: number
+    previousPage: string | null
+    sort: [string]
+}
 
 export type Sneaker = {
     id: string,
@@ -16,4 +26,10 @@ export type Sneaker = {
 export type Media = {
     imageUrl: string,
     smallImageUrl: string,
+}
+
+
+export type SneackerListModel = {
+    Pagination: Pagination,
+    Products: Array<Sneaker>
 }
