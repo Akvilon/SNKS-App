@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Page } from '../../utils/Page';
 import { RouteComponentProps } from 'react-router';
 import { PATHES } from '../../constants';
-import { SneakersListContainer } from '../../components/SneakersList/SneakersList.container';
+import { Sneakers } from '../../components/Sneakers/Sneakers.container';
 
 
 export const SneakersPage = (props: RouteComponentProps) => {
@@ -13,11 +13,11 @@ export const SneakersPage = (props: RouteComponentProps) => {
         gender = 'men';
     } else {
         title += 'WOMEN'
-        gender = 'woman';
+        gender = 'women';
     }
     return (
-        <Page title={title} withHeader={true}>
-            <SneakersListContainer gender={gender} />
+        <Page title={title} withHeader={true} withFooter={true} >
+            <Sneakers gender={gender} />
         </Page>
     )
 }

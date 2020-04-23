@@ -8,7 +8,7 @@ export default createUseStyles((theme: Theme) => ({
         position: 'relative',
         '& h1, h2, h3, h4, h5, h6, p, span': {
             position: 'absolute',
-            top:'4px',
+            top:'8px',
             left:'0',
             fontSize: '0.750rem',
             color: getTextHoverStyle(theme)

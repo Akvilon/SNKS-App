@@ -6,6 +6,7 @@ import { useTheme } from 'react-jss';
 import useStyles from './App.styles';
 import { ProtectedRoute } from './ProtectedRoute';
 
+
 const App = () => {
   const theme = useTheme()
   const classes = useStyles({theme})

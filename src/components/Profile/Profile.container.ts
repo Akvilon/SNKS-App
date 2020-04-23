@@ -5,6 +5,7 @@ import { getActiveUserSelector, logOut } from '../../store/auth';
 import { connect } from 'react-redux';
 import { Profile } from './Profile';
 import { Dispatch } from 'redux';
+import { Action } from '../../store/types';
 
 
 type StateProps = {
@@ -21,7 +22,7 @@ const mapStateToProps = (state: AppState): StateProps => {
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<Action<any>>): DispatchProps => {
     return {
         onLogOut: (activeUser: Array<User>) => dispatch(logOut(activeUser))
     }

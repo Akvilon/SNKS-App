@@ -1,6 +1,5 @@
 import { Action } from "../types";
 import { ACTION_TYPES } from "./actionTypes";
-import { Sneaker } from "../../models/Sneaker";
 import { User } from "../../models/User";
 
 
@@ -22,7 +21,6 @@ export default (state: AuthState = INITIAL_STATE, action: Action<any>) => {
             return { ...state.userList, userList: action.payload }
 
         case ACTION_TYPES.SET_ACTIVE_USER:
-            console.log('SET_USER > REDUCER', action.payload)
             return { ...state.activeUser, activeUser: action.payload }
 
         case ACTION_TYPES.SET_SIGNIN_VALIDATION_ERROR:

@@ -10,7 +10,7 @@ const Header = (props: HeaderProps) => {
   const theme = useTheme()
   const classes = useStyles({ theme })
   return (
-    <div className={classes.header}>
+    <header className={classes.header}>
       <div className={classes.logo}>
         <img src={logo} alt="logo" />
       </div>
@@ -25,7 +25,7 @@ const Header = (props: HeaderProps) => {
           <Link to={'/profile'}>Profile</Link>
         </div>
       </nav>
-    </div>
+    </header>
   );
 };
 

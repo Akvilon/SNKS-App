@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Eugen",
+      "email": "eugen.pavlov@gmail.com",
+      "password": "1",
+      "isSignedIn": true
+    }
+  ]
+}

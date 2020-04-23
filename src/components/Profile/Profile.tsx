@@ -50,24 +50,22 @@ const Profile: React.FC<ProfileProps> = ({ activeUser, onLogOut }) => {
 
     return (
         <div className={classes.profile}>
-            <div className={classes.profileInner}>
-                <div className={classes.profileTabs}>
-                    <Tabs
-                        activeTabIndex={activeTabIndex}
-                        info={tabsInfo}
-                        handleTabClick={handleTabClick} />
+            <div className={classes.profileTabs}>
+                <Tabs
+                    activeTabIndex={activeTabIndex}
+                    info={tabsInfo}
+                    handleTabClick={handleTabClick} />
 
-                    <div className={classes.logoutBtn}>
-                        <Button type="button" variant={ButtonVariant.TEXT} onClick={() => onLogOut(activeUser)}>
-                            <p>Log out</p>
-                        </Button>
-                    </div>
+                <div className={classes.logoutBtn}>
+                    <Button type="button" variant={ButtonVariant.TEXT} onClick={() => onLogOut(activeUser)}>
+                        <p>Log out</p>
+                    </Button>
                 </div>
-                <div className={classes.profileTabContent}>
-                    <TabContent>
-                        {activeItem.content}
-                    </TabContent>
-                </div>
+            </div>
+            <div className={classes.profileTabContent}>
+                <TabContent>
+                    {activeItem.content}
+                </TabContent>
             </div>
         </div>
     )

@@ -2,17 +2,19 @@
 
 export type ThemeColors = {
     background: string,
+    contrastBackground: string,
     btnBackground: string,
     btnHoverBackground: string,
     btnDisabledBackground: string;
     btnDisabledHoverBackground: string;
     border: string,
+    contrastBorder: string,
     btnBorder: string,
     btnHoverBorder: string,
     btnDisabledBorder: string,
     btnDisabledHoverBorder: string,
     mainGradient: string,
-    modalLayout: string,
+    blackoutBackground: string,
     mainShadow: string,
     insetShadow: string,
     text: string,

@@ -1,5 +1,5 @@
 import { createUseStyles } from "react-jss";
-import { Theme, baseFontSize, getMainShadowStyle, getTextStyle } from "../../styles";
+import { Theme, getMainShadowStyle } from "../../styles";
 
 
 export default createUseStyles((theme: Theme) => ({

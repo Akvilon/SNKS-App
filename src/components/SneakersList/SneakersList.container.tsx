@@ -1,26 +1,19 @@
 import * as React from 'react';
-import {SneakersList} from './SneakersList';
-import { ApiService } from '../../services/ApiService';
+import { AppState } from '../../store';
+import { connect } from 'react-redux';
+import { SneakersList } from './SneakersList';
 
-type SneakersProps = {
-    gender: string;
+
+type StateProps = {
+
 }
 
-class SneakersListContainer extends React.PureComponent<SneakersProps> {
-    
-    componentDidMount() {
-        // const {gender} = this.props;
-        // ApiService.getSneakersByGender(gender).then(res => console.log(res))
+const mapStateToProps = (state: AppState): StateProps => {
+    return {
 
-        // ApiService.getBrand(gender, 'Puma').then(res => console.log(res));
-    }
-
-    render() {
-        return (
-            <SneakersList />
-        )
     }
 }
 
+const connectedSneakersList = connect(mapStateToProps)(SneakersList)
 
-export {SneakersListContainer}
+export {connectedSneakersList as SneakersList}

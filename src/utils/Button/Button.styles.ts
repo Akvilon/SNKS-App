@@ -9,7 +9,6 @@ import {
     getBtnHoverBackgroundStyle,
     getBtnHoverBorderStyle,
     getTextHoverStyle,
-    getBorderStyle,
     getBtnBorderStyle,
     getBtnDisabledBackgroundStyle,
     getBtnDisabledBorderStyle,

@@ -1,28 +1,24 @@
 import * as React from "react";
-import { RouteProps, Route, Redirect } from "react-router";
+import { RouteProps, Route, Redirect, RouteComponentProps } from "react-router";
 import * as CONST from '../../constants';
-import { connect } from "react-redux";
-import { getIsSignedIn } from "../../store/auth";
+import { User } from "../../models/User";
 import { AppState } from "../../store";
+import { getActiveUserSelector, getActiveUser } from "../../store/auth";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { useEffect } from "react";
 
 
-type StateProps = {
-    isSignedIn: boolean;
+type ProtectedRouteProps = {
+  activeUser: Array<User>
 }
 
-const ProtectedRoute: React.FC<StateProps & RouteProps> = ({isSignedIn, ...props}) => {
-    console.log('');
-    console.log(isSignedIn);
-  return isSignedIn ? <Route {...props}/> : <Redirect to={CONST.PATHES.SIGNIN} />
+const ProtectedRoute: React.FC<ProtectedRouteProps & RouteProps> = ({activeUser, ...props }) => {
+  console.log('hello from Protected')
+  console.log('activeUser Pro', activeUser)
+  
+  return activeUser.length !== 0 ? <Route {...props} /> : <Redirect to={CONST.PATHES.SIGNIN} />
 }
 
-const mapStateToProps = (state: AppState): StateProps => {
-    return {
-        isSignedIn: getIsSignedIn(state)
-    }
-}
 
-const ConnectedProtectedRoute = connect(mapStateToProps)(ProtectedRoute);
-
-
-export {ConnectedProtectedRoute as ProtectedRoute}
+export { ProtectedRoute }

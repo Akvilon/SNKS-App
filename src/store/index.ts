@@ -1,8 +1,8 @@
-import { compose, combineReducers, createStore, applyMiddleware } from "redux";
+import { compose, combineReducers, createStore, applyMiddleware, Middleware } from "redux";
 import {connectRouter, routerMiddleware} from 'connected-react-router';
 import {History} from 'history';
 import sneakers , { SneakersState, sneakersMiddlewares } from "./sneakers";
-import auth, { AuthState } from "./auth";
+import auth, { AuthState, authMiddlewares } from "./auth";
 
 
 
@@ -32,7 +32,8 @@ export default (history: History) => {
         composeEnhancers(
             applyMiddleware(
                 routerMiddleware(history),
-                // sneakersMiddlewares
+                ...authMiddlewares as Middleware[],
+                ...sneakersMiddlewares as Middleware[]
             )
         )
     );
