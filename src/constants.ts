@@ -13,16 +13,8 @@ export enum PATHES {
     REDIRECT='/*'
 }
 
-export enum BRANDS {
-    JORDAN='Air Jordan',
-    NIKE='Nike',
-    PUMA='Puma',
-    ADIDAS='Adidas',
-    NEW_BALANCE='New Balance',
-    REEBOK='Reebok'
-}
-
 export default Object.freeze({
     baseStockXUrl: process.env.REACT_APP_BASE_STOCKX_URL,
     jsonServerUrl: process.env.REACT_APP_BASE_JSON_SERVER_URL,
+    brands: ['all','jordan', 'adidas', 'nike', 'puma', 'reebok', 'new balance', 'asics', 'saucony']
 });

@@ -63,6 +63,10 @@ export default createUseStyles((theme: Theme) => ({
             color: getTextDisabledStyle(theme),
         }
     },
+    defaultBtnActive: {
+        border: `1px solid ${getBtnHoverBorderStyle(theme)}`,
+        color: getTextHoverStyle(theme),
+    },
     primaryBtn: {
         color: getContrastTextStyle(theme),
         background: getBtnBackgroundStyle(theme),
@@ -82,6 +86,10 @@ export default createUseStyles((theme: Theme) => ({
             color: getTextDisabledStyle(theme),
         }
     },
+    primaryBtnActive: {
+        background: getBtnHoverBackgroundStyle(theme),
+        border: getBtnHoverBorderStyle(theme)
+    },
     textBtn: {
         height: '100%',
         width: 'auto',
@@ -92,11 +100,14 @@ export default createUseStyles((theme: Theme) => ({
             color: getTextHoverStyle(theme)
         }
     },
-    teaxtBtnDisabled: {
+    textBtnDisabled: {
         color: getTextDisabledStyle(theme),
         cursor: 'default',
         '&:hover': {
             color: getTextDisabledStyle(theme),
         }
-    }
+    },
+    textBtnActive: {
+        color: getTextHoverStyle(theme)
+    },
 }))

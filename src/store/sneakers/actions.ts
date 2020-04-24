@@ -1,29 +1,14 @@
 import { ACTION_TYPES } from "./actionTypes";
 import { SneackerListModel, Sneaker } from "../../models/SneakerListModel";
 
-
-export const fetchSneakersList = () => ({
+export const fetchSneakersList = (gender: string, brand: string) => ({
 	type: ACTION_TYPES.FETCH_SNEAKERS_LIST,
-});
+	payload: {gender, brand}
+})
 
 export const setSneakersList = (sneakersList: SneackerListModel) => ({
 	type: ACTION_TYPES.SET_SNEAKERS_LIST,
 	payload: sneakersList
-});
-
-export const getSneakersByGender = (gender: string) => ({
-	type: ACTION_TYPES.GET_SNEAKERS_BY_GENDER,
-	payload: gender
-});
-
-export const setSneakersByGender = (list: SneackerListModel) => ({
-	type: ACTION_TYPES.SET_SNEAKERS_BY_GENDER,
-	payload: list
-});
-
-export const getSneakersByBrand = (gender: string, brand: string) => ({
-	type: ACTION_TYPES.GET_SNEAKERS_BY_BRAND,
-	payload: {gender, brand}
 });
 
 export const sortPopular = (sortType:string) => ({

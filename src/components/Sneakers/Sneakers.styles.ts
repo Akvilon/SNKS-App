@@ -6,6 +6,10 @@ export default createUseStyles((theme: Theme) => ({
     sneakers: {
         width: '100%',
         height: '100%',
+        '& h2': {
+            fontSize: '2.25rem',
+            fontWeight: '400',
+        }
     },
     sneakersMenBanner: {
         height: '420px',
@@ -40,14 +44,34 @@ export default createUseStyles((theme: Theme) => ({
     },
     sneakersContainerFilters: {
         width: '20%',
-        '& label': {
-            display: 'flex'
+        '& button': {
+            textTransform: 'capitalize',
+            borderRadius: '0px'
+        },
+        '& h3': {
+            fontSize: '1.5rem',
+            fontWeight: '400',
+            padding: '24px 0px'
         }
+    },
+    sneakersContainerFiltersInner: {
+        maxWidth: '200px',
     },
     sneakersContainerList: {
         width: '80%',
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'space-between'
+        justifyContent: 'flex-start',
+    },
+    sneakersShowMoreBtn: {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '30px 0px',
+        '& button': {
+            width: '10%',
+            minWidth: '145px'
+        }
     }
 }))

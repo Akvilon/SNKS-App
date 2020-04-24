@@ -13,7 +13,7 @@ export const sortMiddleware: Middleware = ({ getState, dispatch }: MiddlewareAPI
             Products.forEach(product => {
                 if (popular.length < 9) {
                     const rand = Math.floor(Math.random() * Products.length);
-                    if (!popular.includes(Products[rand]) && Products[rand].title.indexOf('Yeezy Slide') === -1) {
+                    if (!popular.includes(Products[rand]) && Products[rand].title.indexOf('Slide') < 0) {
                         popular.push(Products[rand])
                     }
                 }
