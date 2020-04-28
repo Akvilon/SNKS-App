@@ -10,27 +10,46 @@ import { useState, useEffect } from 'react';
 export type PaginationProps = {
     paginationLength: number;
     onPaginationBtnClickHandler: (page: number, index: number) => void;
-    startPageIndex: number;
-    lastPageIndex: number;
+    firstPageIndex: number;
+    lastNumberPerPage: number;
     active: number;
+    previousPage: string | null;
+    nextPage: string | null;
+    onNextBtnClick: () => void;
+    onPreviousBtnClick: () => void
 }
 
-const Pagination: React.FC<PaginationProps> = ({ paginationLength, startPageIndex, lastPageIndex, onPaginationBtnClickHandler, active }) => {
+const Pagination: React.FC<PaginationProps> = ({
+    paginationLength,
+    firstPageIndex,
+    lastNumberPerPage,
+    onPaginationBtnClickHandler,
+    active,
+    previousPage,
+    onPreviousBtnClick,
+    nextPage,
+    onNextBtnClick
+}) => {
+
     const theme = useTheme();
     const classes = useStyles({ theme });
     const numbers: Array<number> = [];
 
-    for (let i = 1; i < paginationLength; i++) {
+    for (let i = 1; i <= paginationLength; i++) {
         numbers.push(i)
     }
     const [activeIndex, setActiveIndex] = useState<number>(0)
 
     return (
         <div className={classes.pagination}>
-            <Button type={'button'} variant={ButtonVariant.DEFAULT}>
+            <Button
+                type={'button'}
+                variant={ButtonVariant.DEFAULT}
+                onClick={onPreviousBtnClick}
+                disabled={previousPage ? false : true}>
                 {'Previous'}
             </Button>
-            {numbers.slice(startPageIndex, lastPageIndex).map((number, index) => {
+            {numbers.slice(firstPageIndex, lastNumberPerPage).map((number, index) => {
                 return (
                     <Button
                         key={uuidv4()}
@@ -42,7 +61,11 @@ const Pagination: React.FC<PaginationProps> = ({ paginationLength, startPageInde
                     </Button>
                 )
             })}
-            <Button type={'button'} variant={ButtonVariant.DEFAULT}>
+            <Button
+                type={'button'}
+                variant={ButtonVariant.DEFAULT}
+                onClick={onNextBtnClick}
+                disabled={nextPage ? false : true}>
                 {'Next'}
             </Button>
         </div>

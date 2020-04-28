@@ -20,9 +20,10 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
     const theme = useTheme();
     const classes = useStyles(theme);
     const [activeIndex, setActiveIndex] = useState<number>(0);
-    const [startPageIndex, setStartPageIndex] = useState<number>(CONST.default.paginationFirstIndexPerPage)
-    const [lastPageIndex, setLastPageIndex] = useState<number>(CONST.default.paginationLastIndexPerPage)
+    const [firstPageIndex, setFirstPageIndex] = useState<number>(CONST.default.paginationFirstIndexPerPage)
+    const [lastNumberPerPage, setLastNumberPerPage] = useState<number>(CONST.default.paginationItemsPerPage)
     const [activePaginationIndex, setActivePaginationIndex] = useState<number>(0);
+    const [currentPage, setCurrentPage] = useState<number>(1);
 
     useEffect(() => {
         fetchSneakersList(gender, 'All', 1)
@@ -30,24 +31,63 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
 
     const onBrandBtnClickHandler = (brand: string, index: number, page: number) => {
         setActiveIndex(index);
-        setStartPageIndex(CONST.default.paginationFirstIndexPerPage);
-        setLastPageIndex(CONST.default.paginationLastIndexPerPage);
+        setFirstPageIndex(CONST.default.paginationFirstIndexPerPage);
+        setLastNumberPerPage(CONST.default.paginationItemsPerPage);
         setActivePaginationIndex(0)
         fetchSneakersList(gender, brand, 1)
     }
 
     const onPaginationBtnClickHandler = (page: number, index: number) => {
-        window.scrollTo(0, 500)
-        const brand = CONST.default.brands.filter((el, index) => index === activeIndex)[0]
-        setActivePaginationIndex(index)
-        if (page === lastPageIndex) {
-            setStartPageIndex(lastPageIndex - 1);
-            setLastPageIndex(lastPageIndex + CONST.default.paginationLastIndexPerPage - 1);
+        window.scrollTo(0, 500);
+        const brand = CONST.default.brands.filter((el, index) => index === activeIndex)[0];
+        setCurrentPage(page);
+        setActivePaginationIndex(index);
+        
+        if (page === lastNumberPerPage) {
+            setFirstPageIndex(lastNumberPerPage - 1);
+            setLastNumberPerPage(lastNumberPerPage + (CONST.default.paginationItemsPerPage - 1));
             setActivePaginationIndex(0)
+        } else if (page === lastNumberPerPage - (CONST.default.paginationItemsPerPage - 1)) {
+            setFirstPageIndex(page - 1 - (CONST.default.paginationItemsPerPage - 1));
+            setLastNumberPerPage(page);
+            setActivePaginationIndex(4);
         }
         fetchSneakersList(gender, brand, page)
     }
-
+    const onPreviousBtnClick = () => {
+        window.scrollTo(0, 500);
+        const brand = CONST.default.brands.filter((el, index) => index === activeIndex)[0];
+        setCurrentPage(currentPage - 1);
+        if (currentPage === lastNumberPerPage - (CONST.default.paginationItemsPerPage - 1)) {
+            setFirstPageIndex(currentPage - 1 - (CONST.default.paginationItemsPerPage - 1));
+            setLastNumberPerPage(currentPage);
+            setActivePaginationIndex(3);
+        }else {
+            setActivePaginationIndex(activePaginationIndex - 1);
+        }
+        
+        fetchSneakersList(gender, brand, currentPage - 1)
+    }
+    const onNextBtnClick = () => {
+        // window.scrollTo(0, 500);
+        const brand = CONST.default.brands.filter((el, index) => index === activeIndex)[0];
+        
+        if (currentPage === lastNumberPerPage) {
+            console.log('WWWW')
+            setFirstPageIndex(lastNumberPerPage - 1);
+            setLastNumberPerPage(lastNumberPerPage + (CONST.default.paginationItemsPerPage - 1));
+            setActivePaginationIndex(0)
+        }else {
+            setCurrentPage(currentPage + 1);
+            setActivePaginationIndex(activePaginationIndex + 1);
+        }
+        fetchSneakersList(gender, brand, currentPage + 1)
+    }
+    console.log('currentPage >>',currentPage)
+    console.log('activePaginationIndex >>',activePaginationIndex)
+    console.log('firstPageIndex >>',firstPageIndex)
+    console.log('lastNumberPerPage >>',lastNumberPerPage)
+    console.log(sneakersList)
     return (
         <div className={classes.sneakers}>
             {
@@ -96,9 +136,13 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
                             {
                                 sneakersList &&
                                 <Pagination
-                                    startPageIndex={startPageIndex}
-                                    lastPageIndex={lastPageIndex}
+                                    firstPageIndex={firstPageIndex}
+                                    lastNumberPerPage={lastNumberPerPage}
                                     active={activePaginationIndex}
+                                    previousPage={sneakersList.Pagination.previousPage}
+                                    onPreviousBtnClick={onPreviousBtnClick}
+                                    nextPage={sneakersList.Pagination.nextPage}
+                                    onNextBtnClick={onNextBtnClick}
                                     paginationLength={sneakersList.Pagination.lastPage ? +sneakersList.Pagination.lastPage.split('page=')[1].split('&')[0] : 0}
                                     onPaginationBtnClickHandler={onPaginationBtnClickHandler} />
                             }
