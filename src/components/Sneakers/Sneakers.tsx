@@ -8,25 +8,44 @@ import { SneackerListModel } from '../../models/SneakerListModel';
 import { Button } from '../../utils/Button';
 import { ButtonVariant } from '../../utils/Button/Button.styles';
 import { v4 as uuidv4 } from 'uuid';
+import { Pagination } from '../../utils/Pagination';
 
 type OwnProps = {
     gender: string,
     sneakersList: SneackerListModel | undefined,
-    fetchSneakersList: (gender: string, brand: string) => void,
+    fetchSneakersList: (gender: string, brand: string, page: number) => void,
 }
 
 const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList }) => {
     const theme = useTheme();
     const classes = useStyles(theme);
     const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [startPageIndex, setStartPageIndex] = useState<number>(CONST.default.paginationFirstIndexPerPage)
+    const [lastPageIndex, setLastPageIndex] = useState<number>(CONST.default.paginationLastIndexPerPage)
+    const [activePaginationIndex, setActivePaginationIndex] = useState<number>(0);
 
     useEffect(() => {
-        fetchSneakersList(gender, 'All')
+        fetchSneakersList(gender, 'All', 1)
     }, [])
 
-    const onBrandBtnClickHandler = (brand: string, index: number) => {
-        setActiveIndex(index)
-        fetchSneakersList(gender, brand)
+    const onBrandBtnClickHandler = (brand: string, index: number, page: number) => {
+        setActiveIndex(index);
+        setStartPageIndex(CONST.default.paginationFirstIndexPerPage);
+        setLastPageIndex(CONST.default.paginationLastIndexPerPage);
+        setActivePaginationIndex(0)
+        fetchSneakersList(gender, brand, 1)
+    }
+
+    const onPaginationBtnClickHandler = (page: number, index: number) => {
+        window.scrollTo(0, 500)
+        const brand = CONST.default.brands.filter((el, index) => index === activeIndex)[0]
+        setActivePaginationIndex(index)
+        if (page === lastPageIndex) {
+            setStartPageIndex(lastPageIndex - 1);
+            setLastPageIndex(lastPageIndex + CONST.default.paginationLastIndexPerPage - 1);
+            setActivePaginationIndex(0)
+        }
+        fetchSneakersList(gender, brand, page)
     }
 
     return (
@@ -59,7 +78,7 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
                                             type={'button'}
                                             variant={ButtonVariant.PRIMARY}
                                             active={index === activeIndex ? true : false}
-                                            onClick={() => onBrandBtnClickHandler(brand, index)}>
+                                            onClick={() => onBrandBtnClickHandler(brand, index, 1)}>
                                             <p>{brand}</p>
                                         </ Button>
                                     )
@@ -69,12 +88,20 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
                         </div>
                     </div>
                     <div className={classes.sneakersContainerList}>
-                        <SneakersList list={sneakersList} />
+                        {
+                            sneakersList ? <SneakersList list={sneakersList} /> : <div>LOADING...</div>
+                        }
 
-                        <div className={classes.sneakersShowMoreBtn}>
-                            <Button variant={ButtonVariant.PRIMARY}>
-                                <p>Show more</p>
-                            </Button>
+                        <div className={classes.sneakersPagination}>
+                            {
+                                sneakersList &&
+                                <Pagination
+                                    startPageIndex={startPageIndex}
+                                    lastPageIndex={lastPageIndex}
+                                    active={activePaginationIndex}
+                                    paginationLength={sneakersList.Pagination.lastPage ? +sneakersList.Pagination.lastPage.split('page=')[1].split('&')[0] : 0}
+                                    onPaginationBtnClickHandler={onPaginationBtnClickHandler} />
+                            }
                         </div>
                     </div>
                 </div>

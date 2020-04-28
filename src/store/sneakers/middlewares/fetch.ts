@@ -10,9 +10,8 @@ import { shuffle } from "../../../utils/shuffle";
 export const fetchMiddleware: Middleware = ({ getState, dispatch }: MiddlewareAPI) => (next: (action: Action<any>) => void) => async (action: Action<any>) => {
 
     if (action.type === ACTION_TYPES.FETCH_SNEAKERS_LIST) {
-        if (action.payload.brand === 'All') {
-            await ApiService.getSneakersByGender(action.payload.gender).then(list => {
-                console.log(list)
+        if (action.payload.brand.toLowerCase() === 'all') {
+            await ApiService.getSneakersByGender(action.payload.gender, action.payload.page).then(list => {
                 const brands = CONST.default.brands;
                 const filteredProducts = shuffle(list.Products
                     .filter(prod => brands.indexOf(prod.brand.toLowerCase()) !== -1 &&
@@ -26,8 +25,8 @@ export const fetchMiddleware: Middleware = ({ getState, dispatch }: MiddlewareAP
                 dispatch(setSneakersList(newList))
             })
         } else {
-            await ApiService.getSneakersByBrand(action.payload.gender, action.payload.brand).then(list => {
-                console.log(list)
+            await ApiService.getSneakersByBrand(action.payload.gender, action.payload.brand, action.payload.page).then(list => {
+                console.log('>>>',action.payload.brand, action.payload.page)
                 const filteredProducts = list.Products
                     .filter(prod => prod.title.indexOf('Slide') < 0 &&
                         prod.category.indexOf('Other Brands') < 0 &&

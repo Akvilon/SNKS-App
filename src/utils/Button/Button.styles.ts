@@ -66,6 +66,7 @@ export default createUseStyles((theme: Theme) => ({
     defaultBtnActive: {
         border: `1px solid ${getBtnHoverBorderStyle(theme)}`,
         color: getTextHoverStyle(theme),
+        background: getBackgroundStyle(theme),
     },
     primaryBtn: {
         color: getContrastTextStyle(theme),

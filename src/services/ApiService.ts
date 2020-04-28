@@ -67,9 +67,9 @@ export class ApiService {
         }
     }
 
-    public static getSneakersByGender = async (gender: string) => {
+    public static getSneakersByGender = async (gender: string, page: number) => {
         try {
-            const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&gender=${gender}`);
+            const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&gender=${gender}&page=${page}`);
             return await response.data;
         }
         catch (e) {
@@ -77,9 +77,9 @@ export class ApiService {
         }
     }
 
-    public static getSneakersByBrand = async (gender: string, brand: string) => {
+    public static getSneakersByBrand = async (gender: string, brand: string, page: number) => {
         try {
-            const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&brand=${brand}&gender=${gender}`);
+            const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&brand=${brand}&gender=${gender}&page=${page}`);
             return await response.data;
         }
         catch (e) {

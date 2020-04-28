@@ -16,5 +16,7 @@ export enum PATHES {
 export default Object.freeze({
     baseStockXUrl: process.env.REACT_APP_BASE_STOCKX_URL,
     jsonServerUrl: process.env.REACT_APP_BASE_JSON_SERVER_URL,
-    brands: ['all','jordan', 'adidas', 'nike', 'puma', 'reebok', 'new balance', 'asics', 'saucony']
+    brands: ['all','jordan', 'adidas', 'nike', 'puma', 'reebok', 'new balance', 'asics', 'saucony'],
+    paginationFirstIndexPerPage: 0,
+    paginationLastIndexPerPage: 5,
 });

@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({ variant, type, onClick, disabled, activ
         if (disabled) {
             btnClass = `${classes.snksButton} ${classes.defaultBtn} ${classes.defaultBtnDisabled}`
         } else if (active) {
-            btnClass = `${classes.snksButton} ${classes.primaryBtn} ${classes.defaultBtnActive}`
+            btnClass = `${classes.snksButton} ${classes.defaultBtn} ${classes.defaultBtnActive}`
         } else {
             btnClass = `${classes.snksButton} ${classes.defaultBtn}`
         }

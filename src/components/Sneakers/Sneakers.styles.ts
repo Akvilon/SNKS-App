@@ -63,7 +63,7 @@ export default createUseStyles((theme: Theme) => ({
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
     },
-    sneakersShowMoreBtn: {
+    sneakersPagination: {
         width: '100%',
         display: 'flex',
         alignItems: 'center',

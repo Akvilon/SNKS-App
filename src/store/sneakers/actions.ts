@@ -1,9 +1,9 @@
 import { ACTION_TYPES } from "./actionTypes";
 import { SneackerListModel, Sneaker } from "../../models/SneakerListModel";
 
-export const fetchSneakersList = (gender: string, brand: string) => ({
+export const fetchSneakersList = (gender: string, brand: string, page: number) => ({
 	type: ACTION_TYPES.FETCH_SNEAKERS_LIST,
-	payload: {gender, brand}
+	payload: {gender, brand, page}
 })
 
 export const setSneakersList = (sneakersList: SneackerListModel) => ({
