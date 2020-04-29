@@ -13,4 +13,18 @@ export default createUseStyles((theme: Theme) => ({
             padding: '16px'
         }
     },
+    paginationFirstPage: {
+        display: 'flex',
+        alignItems: 'center',
+        '& p': {
+            marginLeft: '8px'
+        }
+    },
+    paginationLastPage: {
+        display: 'flex',
+        alignItems: 'center',
+        '& p': {
+            marginLeft: '8px'
+        }
+    }
 }))
