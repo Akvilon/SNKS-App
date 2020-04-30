@@ -17,8 +17,8 @@ export type PaginationProps = {
     onPaginationBtnClickHandler: (page: number, index: number) => void;
     onNextBtnClick: () => void;
     onPreviousBtnClick: () => void;
-    // onFirstBtnClickHandler: () => void;
-    // onLastBtnClickHandler: () => void
+    onFirstBtnClickHandler: () => void;
+    onLastBtnClickHandler: () => void
 }
 
 const Pagination: React.FC<PaginationProps> = ({
@@ -31,8 +31,8 @@ const Pagination: React.FC<PaginationProps> = ({
     onPreviousBtnClick,
     nextPage,
     onNextBtnClick,
-    // onFirstBtnClickHandler,
-    // onLastBtnClickHandler
+    onFirstBtnClickHandler,
+    onLastBtnClickHandler
 }) => {
 
     const theme = useTheme();
@@ -53,7 +53,7 @@ const Pagination: React.FC<PaginationProps> = ({
                 disabled={previousPage ? false : true}>
                 {'Previous'}
             </Button>
-            {/* {
+            {
                 lastNumberPerPage > 5 &&
                 <div className={classes.paginationFirstPage}>
                     <Button
@@ -64,7 +64,7 @@ const Pagination: React.FC<PaginationProps> = ({
                     </Button>
                     <p>...</p>
                 </div>
-            } */}
+            }
             {numbers.slice(firstPageIndex, lastNumberPerPage).map((number, index) => {
                 return (
                     <Button
@@ -77,7 +77,7 @@ const Pagination: React.FC<PaginationProps> = ({
                     </Button>
                 )
             })}
-            {/* {
+            {
                 lastNumberPerPage !== paginationLength &&
                 <div className={classes.paginationLastPage}>
                     <p>...</p>
@@ -88,7 +88,7 @@ const Pagination: React.FC<PaginationProps> = ({
                         {paginationLength}
                     </Button>
                 </div>
-            } */}
+            }
             <Button
                 type={'button'}
                 variant={ButtonVariant.DEFAULT}
