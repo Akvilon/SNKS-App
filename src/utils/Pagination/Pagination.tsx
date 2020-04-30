@@ -6,6 +6,7 @@ import { useTheme, createUseStyles } from 'react-jss';
 import useStyles from './Pagination.styles';
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
+import * as CONST from '../../constants';
 
 export type PaginationProps = {
     paginationLength: number;
@@ -78,7 +79,7 @@ const Pagination: React.FC<PaginationProps> = ({
                 )
             })}
             {
-                lastNumberPerPage !== paginationLength &&
+                (lastNumberPerPage !== paginationLength && paginationLength > CONST.default.paginationItemsPerPage) &&
                 <div className={classes.paginationLastPage}>
                     <p className={classes.paginationDots}>&bull;&bull;&bull;</p>
                     <Button

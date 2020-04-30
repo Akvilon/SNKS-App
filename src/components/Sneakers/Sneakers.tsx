@@ -58,10 +58,12 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
             }
             setActivePaginationIndex(0)
 
-        } else if (page === firstPageIndex + 1) {
+        } else if (page === firstPageIndex + 1 && firstPageIndex >= 1) {
             setFirstPageIndex(page - range - 1);
             setLastNumberPerPage(page);
             setActivePaginationIndex(4);
+        } else {
+
         }
         fetchSneakersList(gender, brand, page)
     }
@@ -78,7 +80,7 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
             setLastNumberPerPage(currentPage);
             setActivePaginationIndex(3);
             setCurrentPage(currentPage - 1);
-        } else if (currentPage === firstPageIndex + 2) {
+        } else if (currentPage === firstPageIndex + 2 && firstPageIndex > 1) {
             setFirstPageIndex(currentPage - range - 2);
             setLastNumberPerPage(currentPage - 1);
             setActivePaginationIndex(4);
@@ -94,6 +96,7 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
     const onNextBtnClick = () => {
         window.scrollTo(0, 500);
         if (currentPage === lastNumberPerPage) {
+            console.log('currentPage === lastNumberPerPage')
             setFirstPageIndex(lastNumberPerPage - 1);
             setActivePaginationIndex(1)
             if (currentPage + range > lastPage) {
@@ -105,8 +108,9 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
             }
 
         } else if (currentPage === lastPage - 1) {
+            console.log('currentPage === lastPage - 1')
             setCurrentPage(currentPage + 1);
-            setActivePaginationIndex(lastPage % CONST.default.paginationItemsPerPage)
+            setActivePaginationIndex(activePaginationIndex + 1)
         } else if (currentPage === lastNumberPerPage - 1) {
             setFirstPageIndex(lastNumberPerPage - 1);
             if (currentPage + range > lastPage) {
@@ -118,6 +122,7 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
             }
             setActivePaginationIndex(0)
         } else {
+            console.log('else')
             setActivePaginationIndex(activePaginationIndex + 1);
             setCurrentPage(currentPage + 1);
         }
@@ -149,7 +154,7 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
         setLastNumberPerPage(lastPage);
         fetchSneakersList(gender, brand, lastPage)
     }
-    
+
     console.log(sneakersList)
     return (
         <div className={classes.sneakers}>

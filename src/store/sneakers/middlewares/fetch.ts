@@ -26,7 +26,6 @@ export const fetchMiddleware: Middleware = ({ getState, dispatch }: MiddlewareAP
             })
         } else {
             await ApiService.getSneakersByBrand(action.payload.gender, action.payload.brand, action.payload.page).then(list => {
-                console.log('>>>',action.payload.brand, action.payload.page)
                 const filteredProducts = list.Products
                     .filter(prod => prod.title.indexOf('Slide') < 0 &&
                         prod.category.indexOf('Other Brands') < 0 &&
