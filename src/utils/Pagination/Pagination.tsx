@@ -62,7 +62,7 @@ const Pagination: React.FC<PaginationProps> = ({
                         onClick={onFirstBtnClickHandler}>
                         1
                     </Button>
-                    <p>...</p>
+                    <p className={classes.paginationDots}>&bull;&bull;&bull;</p>
                 </div>
             }
             {numbers.slice(firstPageIndex, lastNumberPerPage).map((number, index) => {
@@ -80,7 +80,7 @@ const Pagination: React.FC<PaginationProps> = ({
             {
                 lastNumberPerPage !== paginationLength &&
                 <div className={classes.paginationLastPage}>
-                    <p>...</p>
+                    <p className={classes.paginationDots}>&bull;&bull;&bull;</p>
                     <Button
                         type={'button'}
                         variant={ButtonVariant.DEFAULT}

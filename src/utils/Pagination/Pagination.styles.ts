@@ -1,5 +1,5 @@
 import { createUseStyles } from "react-jss";
-import { Theme } from "../../styles";
+import { Theme, getTextStyle } from "../../styles";
 
 export default createUseStyles((theme: Theme) => ({
     pagination: {
@@ -15,16 +15,15 @@ export default createUseStyles((theme: Theme) => ({
     },
     paginationFirstPage: {
         display: 'flex',
-        alignItems: 'center',
-        '& p': {
-            marginLeft: '8px'
-        }
+        alignItems: 'flex-end',     
     },
     paginationLastPage: {
         display: 'flex',
-        alignItems: 'center',
-        '& p': {
-            marginLeft: '8px'
-        }
+        alignItems: 'flex-end',
+    },
+    paginationDots: {
+        fontSize: '1rem',
+        marginLeft: '8px',
+        color: getTextStyle(theme)
     }
 }))
