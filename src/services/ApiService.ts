@@ -3,6 +3,7 @@ import * as CONST from '../constants';
 import { FormValues } from '../models/FormValues';
 import { User } from '../models/User';
 import { SneackerListModel } from '../models/SneakerListModel';
+import { all } from 'q';
 
 
 export class ApiService {
@@ -28,7 +29,7 @@ export class ApiService {
     }
 
     public static toggleActiveUser = async (user: User) => {
-        console.log('user from toggle',user)
+        console.log('user from toggle', user)
         try {
             const options = {
                 isSignedIn: !user.isSignedIn
@@ -81,6 +82,40 @@ export class ApiService {
         try {
             const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&brand=${brand}&gender=${gender}&page=${page}`);
             return await response.data;
+        }
+        catch (e) {
+            throw e;
+        }
+    }
+
+    public static getSneakersBySize = async (gender: string, brand: string, size: number, page: number) => {
+        try {
+            const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&brand=${brand}&gender=${gender}&page=${page}`);
+            return await response.data;
+        }
+        catch (e) {
+            throw e;
+        }
+    }
+
+    public static getSneakersList = async (gender: string, brand: string, page: number, size?: number ) => {
+        console.log('brand',brand)
+        console.log('page',page)
+        console.log('size',size)
+        try {
+            if (brand.toLowerCase() === 'all' && size) {
+                const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&gender=${gender}&shoeSize=${size}&page=${page}`);
+                return await response.data;
+            } else if (brand.toLowerCase() === 'all') {
+                const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&gender=${gender}&page=${page}`);
+                return await response.data;
+            } else if (brand !== 'all' && size) {
+                const response = await axios.get<SneackerListModel>(`https://stockx.com/api/browse?_tags=${brand}&productCategory=sneakers&gender=${gender}&shoeSize=${size}&page=${page}`);
+                return await response.data;
+            } else {
+                const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&brand=${brand}&gender=${gender}&page=${page}`);
+                return await response.data;
+            }
         }
         catch (e) {
             throw e;

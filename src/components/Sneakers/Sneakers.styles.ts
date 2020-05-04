@@ -73,5 +73,15 @@ export default createUseStyles((theme: Theme) => ({
             width: '10%',
             minWidth: '145px'
         }
+    },
+    sizeBox: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        '& button': {
+            height: '44px',
+            width: '44px',
+            marginBottom: '12px'
+        }
     }
 }))

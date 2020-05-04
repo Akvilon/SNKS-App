@@ -20,6 +20,7 @@ export type Sneaker = {
     shortDescription: string,
     title: string,
     year: number,
+    shoeSize: number | null,
     media: Media
 }
 
