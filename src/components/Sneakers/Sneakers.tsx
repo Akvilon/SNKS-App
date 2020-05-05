@@ -33,12 +33,13 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
     const lastPage = sneakersList ? +sneakersList.Pagination.lastPage.split('page=')[1].split('&')[0] : 0;
 
     useEffect(() => {
-        fetchSneakersList(gender, currentBrand, 1)
+        fetchSneakersList(gender, currentBrand, currentPage)
     }, [])
 
     const onBrandBtnClickHandler = (brand: string, page: number, index: number, ) => {
         setActiveIndex(index);
         setCurrentBrand(brand);
+        setCurrentPage(1);
         setFirstPageIndex(CONST.default.paginationFirstIndexPerPage);
         setLastNumberPerPage(CONST.default.paginationItemsPerPage);
         setActivePaginationIndex(0);

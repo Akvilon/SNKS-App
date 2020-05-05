@@ -7,7 +7,7 @@ import { Profile } from '../../components/Profile';
 
 export const ProfilePage = (props: RouteComponentProps) => {
     return (
-        <Page title={'SNKS | PROFILE'} withHeader={true} withInnerBlock={true} withFooter={true}>
+        <Page title={'SNKS | PROFILE'} withHeader={true} withInnerBlock={true} withFooter={true} {...props}>
             <Profile />
         </Page>
     )

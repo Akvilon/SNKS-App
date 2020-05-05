@@ -6,8 +6,8 @@ import { Home } from '../../components/Home';
 
 export const HomePage = (props: RouteComponentProps) => {
     return (
-        <Page title={'SNKS | HOME'} withHeader={true} withFooter={true} >
-           <Home />
+        <Page title={'SNKS | HOME'} withHeader={true} withFooter={true} {...props}>
+           <Home {...props}/>
         </Page>
     )
 }

@@ -15,10 +15,20 @@ export default createUseStyles((theme: Theme) => ({
         height: '80px',
         background: getBackgroundStyle(theme),
         boxShadow: getMainShadowStyle(theme),
-        '& nav': {
-            display: 'flex',
-            marginLeft: 'auto',
+    },
+    nav: {
+        display: 'flex',
+        marginLeft: 'auto',
+    },
+    logo: {
+        display: 'flex',
+        alignItems: 'center',
+        marginLeft: '30px',
+        '& img': {
+            width: '100px'
         },
+    },
+    link: {
         '& a': {
             display: 'flex',
             alignItems: 'center',
@@ -34,17 +44,17 @@ export default createUseStyles((theme: Theme) => ({
             },
         },
     },
-    logo: {
-        display: 'flex',
-        alignItems: 'center',
-        marginLeft: '30px',
-        '& img': {
-            width: '100px'
-        },
-    },
     active: {
-        color: getTextHoverStyle(theme),
-        fontSize: '3rem'
+        '& a': {
+            display: 'flex',
+            alignItems: 'center',
+            height: '100%',
+            padding: '0px 30px',
+            fontSize: '1.250rem',
+            fontWeight: 'bold',
+            color: getTextHoverStyle(theme),
+            transition: '.3s',
+        },
     },
     profileLink: {
         borderLeft: `1px solid ${getBorderStyle(theme)}`,
@@ -52,6 +62,15 @@ export default createUseStyles((theme: Theme) => ({
         '& a': {
             padding: '0px 60px'
         }
+    },
+    langs: {
+        display: 'flex',
+        alignItems: 'center',
+        paddingLeft: '30px',
+        borderLeft: `1px solid ${getTextStyle(theme)}`
+    },
+    cartProductsAmount: {
+
     }
 }))
 

@@ -4,6 +4,7 @@ import { Header } from "../../components/Header";
 import { useTheme } from "react-jss";
 import useStyles from './Page.styles';
 import { Footer } from "../../components/Footer";
+import { RouteComponentProps } from "react-router";
 
 type PageProps = {
   title: string;
@@ -12,7 +13,7 @@ type PageProps = {
   withInnerBlock?: boolean;
 };
 
-export const Page: React.FC<PageProps> = ({ title, children, withHeader, withInnerBlock, withFooter }) => {
+export const Page: React.FC<PageProps> = ({ title, children, withHeader, withInnerBlock, withFooter, ...props }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
@@ -36,7 +37,7 @@ export const Page: React.FC<PageProps> = ({ title, children, withHeader, withInn
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      {withHeader ? <Header /> : null}
+      {withHeader ? <Header {...props}/> : null}
       {withInnerBlock ? renderMainWithInnerBlock() : renderMain()}
       {withFooter ? <Footer /> : null}
     </>

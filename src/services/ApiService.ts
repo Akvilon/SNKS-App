@@ -99,9 +99,6 @@ export class ApiService {
     }
 
     public static getSneakersList = async (gender: string, brand: string, page: number, size?: number ) => {
-        console.log('brand',brand)
-        console.log('page',page)
-        console.log('size',size)
         try {
             if (brand.toLowerCase() === 'all' && size) {
                 const response = await axios.get<SneackerListModel>(`${CONST.default.baseStockXUrl}&gender=${gender}&shoeSize=${size}&page=${page}`);

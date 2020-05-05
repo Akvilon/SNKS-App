@@ -15,6 +15,7 @@ export const fetchMiddleware: Middleware = ({ getState, dispatch }: MiddlewareAP
             if (list.Pagination.currentPage.includes('brand')) {
                 const filteredProducts = list.Products
                     .filter(prod => prod.title.indexOf('Slide') < 0 &&
+                        prod.title.indexOf('Sandal') < 0 &&
                         prod.category.indexOf('Other Brands') < 0 &&
                         (prod.retailPrice && prod.retailPrice !== 0))
 
@@ -24,6 +25,7 @@ export const fetchMiddleware: Middleware = ({ getState, dispatch }: MiddlewareAP
                 const filteredProducts = shuffle(list.Products
                     .filter(prod => brands.indexOf(prod.brand.toLowerCase()) !== -1 &&
                         prod.title.indexOf('Slide') < 0 &&
+                        prod.title.indexOf('Sandal') < 0 &&
                         prod.category.indexOf('Other Brands') < 0 &&
                         (prod.retailPrice && prod.retailPrice !== 0)))
 

@@ -14,14 +14,14 @@ type HomeProps = {
     getMostPopular: (sortType: string) => void
 }
 
-const Home: React.FC<HomeProps> = ({ getActiveUser, getMostPopular, mostPopular }) => {
+const Home: React.FC<HomeProps> = ({ getActiveUser, getMostPopular, mostPopular, ...props }) => {
     const theme = useTheme();
     const classes = useStyles(theme);
     useEffect(() => {
         getActiveUser();
         getMostPopular('most-active')
     }, [])
-    console.log(mostPopular)
+   
     return (
 
         <div className={classes.home}>

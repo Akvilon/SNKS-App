@@ -16,7 +16,7 @@ export const SneakersPage = (props: RouteComponentProps) => {
         gender = 'women';
     }
     return (
-        <Page title={title} withHeader={true} withFooter={true} >
+        <Page title={title} withHeader={true} withFooter={true} {...props}>
             <Sneakers gender={gender} />
         </Page>
     )

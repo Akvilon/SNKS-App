@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 
 export const ContactsPage = (props: RouteComponentProps) => {
     return (
-        <Page title={'SNKS | CONTACTS'} withHeader={true} withFooter={true} withInnerBlock={true}>
+        <Page title={'SNKS | CONTACTS'} withHeader={true} withFooter={true} withInnerBlock={true} {...props}>
             <h1>Hello from CONTACTS</h1>
         </Page>
     )
