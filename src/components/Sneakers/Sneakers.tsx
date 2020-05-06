@@ -9,6 +9,7 @@ import { Button } from '../../utils/Button';
 import { ButtonVariant } from '../../utils/Button/Button.styles';
 import { v4 as uuidv4 } from 'uuid';
 import { Pagination } from '../../utils/Pagination';
+import { Spinner } from '../../utils/Spinner';
 
 type OwnProps = {
     gender: string,
@@ -238,15 +239,20 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
                         </div>
                     </div>
                     <div className={classes.sneakersContainerList}>
+
                         {
-                            sneakersList ? <SneakersList list={sneakersList} /> : <div>LOADING...</div>
+                            sneakersList ?
+                                <SneakersList list={sneakersList} /> :
+                                <div className={classes.sneakersContainerListSpinner}>
+                                    <Spinner />
+                                </div>
                         }
 
                         <div className={classes.sneakersPagination}>
                             {
                                 sneakersList && sneakersList.Products.length === 0 ? <div>No such items</div> :
-                                sneakersList ? renderPagination(sneakersList) : 
-                                null
+                                    sneakersList ? renderPagination(sneakersList) :
+                                        null
                             }
                         </div>
                     </div>

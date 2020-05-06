@@ -63,7 +63,12 @@ export default createUseStyles((theme: Theme) => ({
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
     },
+    sneakersContainerListSpinner: {
+        height: 'calc(100% - 112px)',
+        width: '100%'
+    },
     sneakersPagination: {
+        height: '52px',
         width: '100%',
         display: 'flex',
         alignItems: 'center',
