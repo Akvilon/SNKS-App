@@ -5,7 +5,7 @@ import { PATHES } from '../../constants';
 import { Sneakers } from '../../components/Sneakers/Sneakers.container';
 
 
-export const SneakersPage = (props: RouteComponentProps) => {
+export const SneakersPage: React.FC<RouteComponentProps> = (props) => {
     let title = 'SNKS | ';
     let gender;
     if(props.location.pathname === PATHES.SNEAKERS_MEN) {
@@ -17,7 +17,7 @@ export const SneakersPage = (props: RouteComponentProps) => {
     }
     return (
         <Page title={title} withHeader={true} withFooter={true} {...props}>
-            <Sneakers gender={gender} />
+            <Sneakers gender={gender} {...props}/>
         </Page>
     )
 }

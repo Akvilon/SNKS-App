@@ -9,6 +9,7 @@ import { ProfilePage } from '../pages/ProfilePage';
 import { SigninPage } from '../pages/SigninPage';
 import { NotFoundPage } from '../pages/NotFound';
 import { ContactsPage } from '../pages/ContactsPage';
+import { SneakerCardPage } from '../pages/SneakerCardPage';
 
 
 
@@ -36,6 +37,10 @@ export default [
     {
         path: CONST.PATHES.SNEAKERS_WOMEN,
         render: (props: RouteComponentProps) => <SneakersPage {...props}/>,
+    },
+    {
+        path: CONST.PATHES.SNEAKER_CARD,
+        render: (props: RouteComponentProps) => <SneakerCardPage {...props}/>,
     },
     {
         path: CONST.PATHES.CONTACTS,

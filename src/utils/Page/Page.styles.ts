@@ -14,6 +14,7 @@ export default createUseStyles((theme: Theme) => ({
         width: '100%',
         height: 'calc(100% - 60px)',
         margin: '0 auto',
+        padding: '30px',
         boxSizing: 'border-box',
         background: getBackgroundStyle(theme),
         boxShadow: getMainShadowStyle(theme),

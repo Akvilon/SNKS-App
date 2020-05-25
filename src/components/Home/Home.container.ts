@@ -6,11 +6,11 @@ import { AppState } from '../../store';
 import { Dispatch } from 'redux';
 import { getActiveUser } from '../../store/auth';
 import { getMostPopularSelector, sortPopular } from '../../store/sneakers';
-import { Sneaker } from '../../models/SneakerListModel';
+import { SneakerListItem } from '../../models/SneakerListModel';
 
 
 type StateProps = {
-    mostPopular: Array<Sneaker> | undefined
+    mostPopular: Array<SneakerListItem> | undefined
 }
 
 type DispatchProps = {

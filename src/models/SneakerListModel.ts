@@ -10,14 +10,15 @@ export type Pagination = {
     sort: [string]
 }
 
-export type Sneaker = {
+export type SneakerListItem = {
     id: string,
     brand: string,
-    category: string,
+    category?: string,
     colorway: string,
     gender: string,
     retailPrice: number,
     shortDescription: string,
+    description?:string,
     title: string,
     year: number,
     shoeSize: number | null,
@@ -32,5 +33,5 @@ export type Media = {
 
 export type SneackerListModel = {
     Pagination: Pagination,
-    Products: Array<Sneaker>
+    Products: Array<SneakerListItem>
 }

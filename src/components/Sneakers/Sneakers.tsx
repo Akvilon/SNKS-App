@@ -10,14 +10,16 @@ import { ButtonVariant } from '../../utils/Button/Button.styles';
 import { v4 as uuidv4 } from 'uuid';
 import { Pagination } from '../../utils/Pagination';
 import { Spinner } from '../../utils/Spinner';
+import { Select } from '../../utils/Select';
+import { RouteComponentProps } from 'react-router';
 
 type OwnProps = {
     gender: string,
     sneakersList: SneackerListModel | undefined,
-    fetchSneakersList: (gender: string, brand: string, page: number, size?: number) => void,
+    fetchSneakersList: (gender: string, brand: string, page: number, size?: number, sortType?: string) => void,
 }
 
-const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList }) => {
+const Sneakers: React.FC<OwnProps & RouteComponentProps> = ({ gender, sneakersList, fetchSneakersList, ...props }) => {
     const theme = useTheme();
     const classes = useStyles(theme);
     const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -29,6 +31,8 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [currentBrand, setCurrentBrand] = useState<string>('all');
     const [currentShoeSize, setCurrentShoeSize] = useState<number | undefined>(undefined);
+
+    const [selectedValue, setSelectedValue] = useState<string>('default');
 
     const range = CONST.default.paginationItemsPerPage - 1;
     const lastPage = sneakersList ? +sneakersList.Pagination.lastPage.split('page=')[1].split('&')[0] : 0;
@@ -57,6 +61,12 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
         fetchSneakersList(gender, currentBrand, 1, size)
     }
 
+    const onSelectChangeHandler = (event: React.FormEvent<HTMLSelectElement>) => {
+        const currentValue = event.currentTarget.value;
+        setSelectedValue(currentValue)
+        fetchSneakersList(gender, currentBrand, 1, undefined, currentValue)
+    }
+
     const onPaginationBtnClickHandler = (page: number, index: number) => {
         window.scrollTo(0, 500);
         setCurrentPage(page);
@@ -80,7 +90,7 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
         } else {
 
         }
-        fetchSneakersList(gender, currentBrand, page, currentShoeSize)
+        fetchSneakersList(gender, currentBrand, page, currentShoeSize, selectedValue)
     }
 
     const onPreviousBtnClick = () => {
@@ -183,6 +193,7 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
                 onPaginationBtnClickHandler={onPaginationBtnClickHandler} />
         )
     }
+
     console.log(sneakersList)
     return (
         <div className={classes.sneakers}>
@@ -199,7 +210,11 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
                         gender === 'men' ? <h2>Men sneakers</h2> : <h2>Women sneakers</h2>
                     }
                     <div className={classes.sneakersContainerTopSort}>
-                        <input type="select" />
+                        <p>Sort by:</p>
+                        <Select
+                            options={CONST.default.sneakersSort}
+                            selectedValue={selectedValue}
+                            onChange={onSelectChangeHandler} />
                     </div>
                 </div>
                 <div className={classes.sneakersContainerBody}>
@@ -242,7 +257,7 @@ const Sneakers: React.FC<OwnProps> = ({ gender, sneakersList, fetchSneakersList 
 
                         {
                             sneakersList ?
-                                <SneakersList list={sneakersList} /> :
+                                <SneakersList list={sneakersList} {...props}/> :
                                 <div className={classes.sneakersContainerListSpinner}>
                                     <Spinner />
                                 </div>

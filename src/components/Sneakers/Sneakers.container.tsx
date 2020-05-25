@@ -18,7 +18,7 @@ type StateProps = {
 }
 
 type DispatchProps = {
-    fetchSneakersList: (gender: string, brand: string, page: number, size?: number) => void,
+    fetchSneakersList: (gender: string, brand: string, page: number, size?: number, sortType?: string) => void,
 }
 
 const mapStateToProps = (state: AppState): StateProps => {
@@ -29,7 +29,7 @@ const mapStateToProps = (state: AppState): StateProps => {
 
 const mapDispatchToProps = (dispatch: Dispatch<Action<any>>): DispatchProps => {
     return {
-        fetchSneakersList: (gender: string, brand: string, page: number, size?: number) => dispatch(fetchSneakersList(gender, brand, page, size)),
+        fetchSneakersList: (gender: string, brand: string, page: number, size?: number, sortType?: string) => dispatch(fetchSneakersList(gender, brand, page, size, sortType)),
     }
 }
 

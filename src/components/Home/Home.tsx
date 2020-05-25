@@ -5,11 +5,11 @@ import { useTheme } from 'react-jss';
 import useStyles from './Home.styles';
 import scrollDown from '../../assets/scroll-down-icon.svg';
 import { Blackout } from '../../utils/Blackout';
-import { Sneaker } from '../../models/SneakerListModel';
+import { SneakerListItem } from '../../models/SneakerListModel';
 
 
 type HomeProps = {
-    mostPopular: Array<Sneaker> | undefined,
+    mostPopular: Array<SneakerListItem> | undefined,
     getActiveUser: () => void,
     getMostPopular: (sortType: string) => void
 }
@@ -17,6 +17,7 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = ({ getActiveUser, getMostPopular, mostPopular, ...props }) => {
     const theme = useTheme();
     const classes = useStyles(theme);
+    
     useEffect(() => {
         getActiveUser();
         getMostPopular('most-active')

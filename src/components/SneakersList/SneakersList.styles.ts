@@ -11,6 +11,7 @@ export default createUseStyles((theme: Theme) => ({
         marginLeft: '3.3%',
         padding: '0px 20px',
         boxShadow: getMainShadowStyle(theme),
+        cursor: 'pointer'
     },
     sneakersListBlockImg: {
         display: 'flex',

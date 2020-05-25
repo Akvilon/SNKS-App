@@ -1,3 +1,4 @@
+import { SelectModel } from "./models/SelectModel";
 
 
 export enum PATHES {
@@ -5,6 +6,7 @@ export enum PATHES {
     ABOUT='/about',
     SNEAKERS_MEN='/men',
     SNEAKERS_WOMEN='/women',
+    SNEAKER_CARD='/:id',
     CONTACTS='/contacts',
     CART='/cart',
     PROFILE='/profile',
@@ -16,6 +18,7 @@ export enum PATHES {
 
 export default Object.freeze({
     baseStockXUrl: process.env.REACT_APP_BASE_STOCKX_URL as string,
+    productUrl: process.env.REACT_APP_PRODUCT_URL as string,
     jsonServerUrl: process.env.REACT_APP_BASE_JSON_SERVER_URL as string,
     navLinks: [
         {path: '/', title: 'Home', icon: null},
@@ -27,6 +30,12 @@ export default Object.freeze({
     ],
     brands: ['all','jordan', 'adidas', 'nike', 'puma', 'reebok', 'new balance', 'asics', 'saucony'] as Array<string>,
     shoeSizes: [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 16, 17, 18] as Array<number>,
+    sneakersSort: [
+        {value: 'default', label: 'Default'},
+        {value: 'most-active', label: 'Most Popular'},
+        {value: 'lowest_ask', label: 'Lowest Price'},
+        {value: 'highest_bid', label: 'Highest Price'}
+    ] as Array<SelectModel>,
     paginationFirstIndexPerPage: 0 as number,
     paginationItemsPerPage: 5 as number,
 });

@@ -5,27 +5,34 @@ import { SneackerListModel } from '../../models/SneakerListModel';
 import { Button } from '../../utils/Button';
 import { ButtonVariant } from '../../utils/Button/Button.styles';
 import defaultImage from '../../assets/loader.svg';
+import { RouteComponentProps } from 'react-router';
 
-type SneakersList = {
+type SneakersListProps = {
     list: SneackerListModel | undefined;
 }
 
-const SneakersList: React.FC<SneakersList> = ({ list }) => {
+const SneakersList: React.FC<SneakersListProps & RouteComponentProps> = ({ list, ...props }) => {
     const theme = useTheme();
-    const classes = useStyles(theme)
+    const classes = useStyles(theme);
+    const { history } = props;
+
+    const openSneakerCard = (id: string) => {
+        history.push(`/${id}`)
+    }
+
     return (
         <>
             {
                 list && list.Products.map(sneaker => {
                     return (
-                        <div className={classes.sneakersListBlock} key={sneaker.id}>
+                        <div className={classes.sneakersListBlock} key={sneaker.id} onClick={() => openSneakerCard(sneaker.id)}>
                             <div className={classes.sneakersListBlockImg}>
                                 {
-                                    sneaker.media.smallImageUrl && sneaker.media.smallImageUrl.indexOf('New-Product-Placeholder-Default') < 0 
-                                    ?
-                                    <img src={sneaker.media.smallImageUrl} alt="sneaker image" /> 
-                                    : 
-                                    <img src={defaultImage} alt="sneaker image" /> 
+                                    sneaker.media.smallImageUrl && sneaker.media.smallImageUrl.indexOf('New-Product-Placeholder-Default') < 0
+                                        ?
+                                        <img src={sneaker.media.smallImageUrl} alt="sneaker image" />
+                                        :
+                                        <img src={defaultImage} alt="sneaker image" />
                                 }
 
                             </div>

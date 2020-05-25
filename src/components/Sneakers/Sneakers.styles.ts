@@ -35,7 +35,8 @@ export default createUseStyles((theme: Theme) => ({
         justifyContent: 'space-between',
     },
     sneakersContainerTopSort: {
-
+        display: 'flex',
+        alignItems: 'center'
     },
     sneakersContainerBody: {
         display: 'flex',
