@@ -6,15 +6,14 @@ import { connect } from 'react-redux';
 
 
 type StateProps = {
-    activeUser: Array<User>
+    activeUser: User | undefined
 }
 
 const UserInfo: React.FC<StateProps> = ({activeUser}) => {
-    console.log('activeUser INFO',activeUser);
     return (
         <div>
-            <p>{activeUser.length !== 0 ? activeUser[0].name : null}</p>
-            <p>{activeUser.length !== 0 ? activeUser[0].email : null}</p>
+            <p>{activeUser ? activeUser.name : null}</p>
+            <p>{activeUser ? activeUser.email : null}</p>
         </div>
     )
 }

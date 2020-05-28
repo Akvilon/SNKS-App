@@ -53,6 +53,7 @@ export default [
     {
         path: CONST.PATHES.PROFILE,
         render: (props: RouteComponentProps) => <ProfilePage {...props}/>,
+        exact: true,
         isProtected: true
     },
     {

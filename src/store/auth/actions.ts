@@ -16,10 +16,10 @@ export const getUserByEmail = (values: FormValues) => ({
 	payload: values
 })
 
-export const setActiveUser = (activeUser: Array<User>) => ({
+export const setActiveUser = (activeUser: User | undefined) => ({
 	type: ACTION_TYPES.SET_ACTIVE_USER,
 	payload: activeUser
-})
+});
 
 export const getActiveUser = () => ({
 	type: ACTION_TYPES.GET_ACTIVE_USER,
@@ -40,7 +40,7 @@ export const setSignInValidationError = (text: string) => ({
 	payload: text
 })
 
-export const logOut = (activeUser: Array<User>) => ({
+export const logOut = (activeUser: User | undefined) => ({
 	type: ACTION_TYPES.LOG_OUT,
 	payload: activeUser
 })

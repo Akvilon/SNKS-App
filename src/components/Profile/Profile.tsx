@@ -14,8 +14,8 @@ import { ButtonVariant } from '../../utils/Button/Button.styles';
 
 
 type ProfileProps = {
-    activeUser: Array<User>
-    onLogOut: (activeUser: Array<User>) => void
+    activeUser: User | undefined
+    onLogOut: (activeUser: User | undefined) => void
 }
 
 const Profile: React.FC<ProfileProps> = ({ activeUser, onLogOut }) => {

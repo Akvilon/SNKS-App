@@ -9,10 +9,15 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { useEffect } from "react";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { Action } from "../../store/types";
 
 
 type StateProps = {
-    activeUser: Array<User>
+    activeUser: User | undefined
+}
+
+type DispatchProps = {
+    getActiveUser: () => void,
 }
 
 const mapStateToProps = (state: AppState): StateProps => {
@@ -21,6 +26,12 @@ const mapStateToProps = (state: AppState): StateProps => {
     }
 }
 
-const ConnectedProtectedRoute = connect(mapStateToProps)(ProtectedRoute);
+const mapDispatchToProps = (dispatch: Dispatch<Action<any>>):DispatchProps => {
+    return {
+        getActiveUser: () => dispatch(getActiveUser()),
+    }
+}
+
+const ConnectedProtectedRoute = connect(mapStateToProps, mapDispatchToProps)(ProtectedRoute);
 
 export { ConnectedProtectedRoute as ProtectedRoute }

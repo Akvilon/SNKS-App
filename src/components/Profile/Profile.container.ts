@@ -9,11 +9,11 @@ import { Action } from '../../store/types';
 
 
 type StateProps = {
-    activeUser: Array<User>
+    activeUser: User | undefined
 }
 
 type DispatchProps = {
-    onLogOut: (activeUser: Array<User>) => void
+    onLogOut: (activeUser: User | undefined) => void
 }
 
 const mapStateToProps = (state: AppState): StateProps => {
@@ -24,7 +24,7 @@ const mapStateToProps = (state: AppState): StateProps => {
 
 const mapDispatchToProps = (dispatch: Dispatch<Action<any>>): DispatchProps => {
     return {
-        onLogOut: (activeUser: Array<User>) => dispatch(logOut(activeUser))
+        onLogOut: (activeUser: User | undefined) => dispatch(logOut(activeUser))
     }
 }
 

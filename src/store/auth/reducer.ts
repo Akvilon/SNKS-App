@@ -3,17 +3,13 @@ import { ACTION_TYPES } from "./actionTypes";
 import { User } from "../../models/User";
 
 
-export type AuthState = {
-    userList: Array<User>;
-    signInValidationError: string,
-    activeUser: Array<User>;
-}
-
 const INITIAL_STATE = {
     userList: [] as Array<User>,
     signInValidationError: '',
-    activeUser: [],
+    activeUser: undefined as User | undefined,
 }
+
+export type AuthState = typeof INITIAL_STATE;
 
 export default (state: AuthState = INITIAL_STATE, action: Action<any>) => {
     switch (action.type) {
@@ -21,7 +17,7 @@ export default (state: AuthState = INITIAL_STATE, action: Action<any>) => {
             return { ...state.userList, userList: action.payload }
 
         case ACTION_TYPES.SET_ACTIVE_USER:
-            return { ...state.activeUser, activeUser: action.payload }
+            return Object.assign({}, state, { activeUser: action.payload })
 
         case ACTION_TYPES.SET_SIGNIN_VALIDATION_ERROR:
             return { ...state, signInValidationError: action.payload }

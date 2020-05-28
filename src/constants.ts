@@ -6,7 +6,7 @@ export enum PATHES {
     ABOUT='/about',
     SNEAKERS_MEN='/men',
     SNEAKERS_WOMEN='/women',
-    SNEAKER_CARD='/:id',
+    SNEAKER_CARD='/sneaker/:id',
     CONTACTS='/contacts',
     CART='/cart',
     PROFILE='/profile',

@@ -17,7 +17,7 @@ const SneakersList: React.FC<SneakersListProps & RouteComponentProps> = ({ list,
     const { history } = props;
 
     const openSneakerCard = (id: string) => {
-        history.push(`/${id}`)
+        history.push(`/sneaker/${id}`)
     }
 
     return (

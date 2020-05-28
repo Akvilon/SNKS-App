@@ -29,7 +29,6 @@ export class ApiService {
     }
 
     public static toggleActiveUser = async (user: User) => {
-        console.log('user from toggle', user)
         try {
             const options = {
                 isSignedIn: !user.isSignedIn
@@ -44,7 +43,7 @@ export class ApiService {
 
     public static getActiveUser = async () => {
         try {
-            const response = await axios.get(`${CONST.default.jsonServerUrl}/users?isSignedIn=true`);
+            const response = await axios.get<Array<User>>(`${CONST.default.jsonServerUrl}/users?isSignedIn=true`);
             return await response.data;
         }
         catch (e) {

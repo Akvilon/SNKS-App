@@ -194,7 +194,6 @@ const Sneakers: React.FC<OwnProps & RouteComponentProps> = ({ gender, sneakersLi
         )
     }
 
-    console.log(sneakersList)
     return (
         <div className={classes.sneakers}>
             {
@@ -257,7 +256,7 @@ const Sneakers: React.FC<OwnProps & RouteComponentProps> = ({ gender, sneakersLi
 
                         {
                             sneakersList ?
-                                <SneakersList list={sneakersList} {...props}/> :
+                                <SneakersList list={sneakersList} {...props} /> :
                                 <div className={classes.sneakersContainerListSpinner}>
                                     <Spinner />
                                 </div>

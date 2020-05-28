@@ -6,18 +6,32 @@ import { AppState } from "../../store";
 import { getActiveUserSelector, getActiveUser } from "../../store/auth";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Spinner } from "../../utils/Spinner";
 
 
 type ProtectedRouteProps = {
-  activeUser: Array<User>
+  activeUser: User | undefined
+  getActiveUser: () => void
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps & RouteProps> = ({activeUser, ...props }) => {
-  console.log('hello from Protected')
-  console.log('activeUser Pro', activeUser)
-  
-  return activeUser.length !== 0 ? <Route {...props} /> : <Redirect to={CONST.PATHES.SIGNIN} />
+const ProtectedRoute: React.FC<ProtectedRouteProps & RouteProps> = ({ activeUser, getActiveUser, ...props }) => {
+
+  const [resp, setResp] = useState(false)
+
+  useEffect(() => {
+    const getActive = async () => {
+      await getActiveUser()
+    }
+    getActive().then(() => setResp(true))
+    
+  }, [])
+
+  const renderProtected = () => {
+    return activeUser ? <Route {...props} /> : <Redirect to={CONST.PATHES.SIGNIN} />
+  }
+
+  return resp ? renderProtected() : <Spinner />
 }
 
 

@@ -17,7 +17,7 @@ export const signInValidationErrorsMiddleware: Middleware = ({ getState, dispatc
             if (user.email === values.email && user.password === values.password) {
                 dispatch(setSignInValidationError(''))
                 await ApiService.toggleActiveUser(user)
-                .then(() => dispatch(push('/')));
+                .then(user => dispatch(push('/profile')))
             } else {
                 dispatch(setSignInValidationError('Wrong password'))
             }

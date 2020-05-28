@@ -15,12 +15,17 @@ const fetchMiddleware: Middleware = ({ getState, dispatch }: MiddlewareAPI) => (
         await ApiService.addUser(action.payload).then(() => dispatch(push('/profile')))
     }
     else if (action.type === ACTION_TYPES.GET_ACTIVE_USER) {
-        await ApiService.getActiveUser().then(activeUser => dispatch(setActiveUser(activeUser)))
+        await ApiService.getActiveUser().then(activeUser => {
+            dispatch(setActiveUser(activeUser[0]))
+        })
     }
     else if (action.type === ACTION_TYPES.LOG_OUT) {
-        const user = action.payload[0]
+        const user = action.payload
         await ApiService.toggleActiveUser(user)
-            .then(() => dispatch(push('/')))
+            .then(() => {
+                dispatch(setActiveUser(undefined));
+                dispatch(push('/profile'))
+            })
     }
 
     next(action);

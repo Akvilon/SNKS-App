@@ -31,24 +31,21 @@ const SneakerCard: React.FC<OwnProps & RouteComponentProps> = ({ sneaker, getSne
         return (
             <div className={classes.sneakerCard}>
                 <div className={classes.sneakerCardImg}>
-                    <img src={sneaker.Product.media.imageUrl} alt="sneaker image"/>
+                    <img src={sneaker.Product.media.imageUrl} alt="sneaker image" />
                 </div>
                 <h2>{sneaker.Product.title.toUpperCase()}</h2>
-                <p>{sneaker.Product.description.replace(/<[^>]+>/g,'')}</p>
+                <p>{sneaker.Product.description.replace(/<[^>]+>/g, '')}</p>
             </div>
         )
     }
 
-    console.log('sneaker', sneaker)
+
     return (
         <>
-        {
-            console.log('sneaker2',sneaker)
-        }
             {
-                
+
                 sneaker ? renderSneaker(sneaker) : <Spinner />
-                
+
             }
         </>
     )
