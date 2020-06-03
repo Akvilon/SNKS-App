@@ -6,6 +6,106 @@
       "email": "eugen.pavlov@gmail.com",
       "password": "1",
       "isSignedIn": false
+    },
+    {
+      "name": "Roma",
+      "email": "roma@roma.com",
+      "password": "1",
+      "isSignedIn": true,
+      "id": 2
+    }
+  ],
+  "cartList": [
+    {
+      "id": "01bd2f3c-a28e-49bb-acfe-f0f4fbc9f78c",
+      "brand": "Jordan",
+      "colorway": "White/Black-Lightbulb-Team Orange",
+      "gender": "women",
+      "retailPrice": 125,
+      "title": "Jordan 1 Mid SE Multi-Color (W)",
+      "year": 2020,
+      "media": {
+        "imageUrl": "https://stockx.imgix.net/Air-Jordan-1-Mid-SE-Multi-Color-W.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1586278203",
+        "smallImageUrl": "https://stockx.imgix.net/Air-Jordan-1-Mid-SE-Multi-Color-W.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1586278203"
+      }
+    },
+    {
+      "id": "875fb3df-eb58-4192-bfe6-c89203aa80f7",
+      "brand": "Nike",
+      "colorway": "Black/Metallic Silver-White-Pink Blast",
+      "gender": "women",
+      "retailPrice": 180,
+      "title": "Nike Zoom Terra Kiger 5 Off-White Black (W)",
+      "year": 2019,
+      "media": {
+        "imageUrl": "https://stockx.imgix.net/Nike-Zoom-Terra-Kiger-5-Off-White-Black-W-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1561561490",
+        "smallImageUrl": "https://stockx.imgix.net/Nike-Zoom-Terra-Kiger-5-Off-White-Black-W-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1561561490"
+      }
+    },
+    {
+      "id": "b33ac7d4-b97b-407c-91bf-dba8d6a440f4",
+      "brand": "Nike",
+      "colorway": "White/Particle Grey-Hyper Grape",
+      "gender": "women",
+      "retailPrice": 140,
+      "title": "Nike Air Max 90 Recraft Hyper Grape (W)",
+      "year": 2020,
+      "media": {
+        "imageUrl": "https://stockx.imgix.net/Nike-Air-Max-90-Recraft-Hyper-Grape-W-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1580325806",
+        "smallImageUrl": "https://stockx.imgix.net/Nike-Air-Max-90-Recraft-Hyper-Grape-W-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1580325806"
+      }
+    },
+    {
+      "id": "f21ee2da-46b5-46e3-83e8-eb7692b91218",
+      "brand": "Jordan",
+      "colorway": "Black/Black-Metallic Gold-White",
+      "gender": "women",
+      "retailPrice": 160,
+      "title": "Jordan 1 Retro High Twist (W)",
+      "year": 2019,
+      "media": {
+        "imageUrl": "https://stockx.imgix.net/Air-Jordan-1-Retro-High-Black-White-W-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1559089846",
+        "smallImageUrl": "https://stockx.imgix.net/Air-Jordan-1-Retro-High-Black-White-W-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1559089846"
+      }
+    },
+    {
+      "id": "d7add4ba-84dd-4639-977f-661ce1959552",
+      "brand": "Jordan",
+      "colorway": "White/Black-Metallic Silver-Fire Red",
+      "gender": "men",
+      "retailPrice": 200,
+      "title": "Jordan 5 Retro Fire Red Silver Tongue (2020)",
+      "year": 2020,
+      "media": {
+        "imageUrl": "https://stockx.imgix.net/Air-Jordan-5-Retro-Fire-Red-Silver-Tongue-2020.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1585933602",
+        "smallImageUrl": "https://stockx.imgix.net/Air-Jordan-5-Retro-Fire-Red-Silver-Tongue-2020.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1585933602"
+      }
+    },
+    {
+      "id": "724a52f9-533f-49b2-8c2b-3a95726a2b3f",
+      "brand": "Nike",
+      "colorway": "Ghost Green/Black",
+      "gender": "men",
+      "retailPrice": 140,
+      "title": "Nike Air Max 90 Green Camo",
+      "year": 2020,
+      "media": {
+        "imageUrl": "https://stockx.imgix.net/Nike-Air-Max-90-Duck-Camo-Volt.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1588913516",
+        "smallImageUrl": "https://stockx.imgix.net/Nike-Air-Max-90-Duck-Camo-Volt.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1588913516"
+      }
+    },
+    {
+      "id": "a1cb8abf-13fd-4573-9ee0-f4e20435942c",
+      "brand": "Jordan",
+      "colorway": "Black/White-Game Royal-Black",
+      "gender": "men",
+      "retailPrice": 170,
+      "title": "Jordan 1 Retro High Royal Toe",
+      "year": 2020,
+      "media": {
+        "imageUrl": "https://stockx.imgix.net/Air-Jordan-1-Retro-High-Black-Game-Royal.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1587791069",
+        "smallImageUrl": "https://stockx.imgix.net/Air-Jordan-1-Retro-High-Black-Game-Royal.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1587791069"
+      }
     }
   ]
 }
