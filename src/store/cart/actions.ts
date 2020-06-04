@@ -11,10 +11,17 @@ export const setCartList = (list: Array<Product>) => ({
 	payload: list
 })
 
-export const addCartItem = (item: Product) => {
-	return {
-		type: ACTION_TYPES.ADD_CART_ITEM,
-		payload: item
-	}
-	
-}
+export const addCartItem = (item: Product) => ({
+	type: ACTION_TYPES.ADD_CART_ITEM,
+	payload: item
+})
+
+export const deleteCartItem = (id: string) => ({
+	type: ACTION_TYPES.DELETE_CART_ITEM,
+	payload: id
+})
+
+export const setTotalPrice = (price: number) => ({
+	type: ACTION_TYPES.SET_TOTAL_PRICE,
+	payload: price
+})

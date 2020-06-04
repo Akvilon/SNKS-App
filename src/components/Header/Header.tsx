@@ -3,14 +3,23 @@ import { useTheme } from "react-jss";
 import useStyles from "./Header.styles";
 import { Link, RouteComponentProps } from "react-router-dom";
 import logo from '../../assets/SNKS.svg';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CONST from '../../constants'
+import { Product } from "../../models/Product";
 
+type HeaderProps = {
+  cartList: Array<Product> | undefined;
+  getCartList: () => void
+}
 
-const Header = ({ ...props }) => {
+const Header: React.FC<HeaderProps & RouteComponentProps> = ({ cartList, getCartList, ...props }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
   const [activeIndex, setActiveIndex] = useState<number>(0)
+
+  useEffect(() => {
+    getCartList()
+  }, [])
 
   return (
     <header className={classes.header}>
@@ -27,9 +36,11 @@ const Header = ({ ...props }) => {
                 <div key={index} className={props.location.pathname !== link.path ? classes.link : classes.active}>
                   <Link to={link.path}>
                     <i className={link.icon}></i>
-                    {true ? <div className={classes.cartProductsAmount}></div> : null}
+                    {cartList ? <div className={classes.cartProductsAmount}><span>{cartList.length}</span></div> : null}
                   </Link>
-                </div> :
+                </div>
+
+                :
 
                 <div key={index} className={props.location.pathname !== link.path ? classes.link : classes.active}>
                   <Link to={link.path}>{link.title}</Link>

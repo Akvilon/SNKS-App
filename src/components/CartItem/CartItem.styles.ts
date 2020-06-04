@@ -1,5 +1,5 @@
 import { createUseStyles } from "react-jss";
-import { Theme, getBorderStyle } from "../../styles";
+import { Theme, getBorderStyle, getMainShadowStyle } from "../../styles";
 
 
 
@@ -9,8 +9,9 @@ export default createUseStyles((theme: Theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '15px 30px',
-        border: `1px solid ${getBorderStyle(theme)}`,
+        boxShadow: getMainShadowStyle(theme),
         borderRadius: '4px',
+        cursor: 'pointer',
         '& img': {
             height: '80px',
             width: '110px'

@@ -6,6 +6,7 @@ export default createUseStyles((theme: Theme) => ({
     footer: {
         width: '100%',
         height: '80px',
+        minHeight: '80px',
         background: getBackgroundStyle(theme),
         boxShadow: getMainShadowStyle(theme),
         // flex: '0 0 auto'

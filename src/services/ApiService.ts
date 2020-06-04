@@ -190,4 +190,14 @@ export class ApiService {
             throw e;
         }
     }
+
+    public static deleteCartItem = async (id: string) => {
+        try {
+            const response = await axios.delete<Product>(`${CONST.default.jsonServerUrl}/cartList/${id}`);
+            return await response.data;
+        }
+        catch (e) {
+            throw e;
+        }
+    }
 }

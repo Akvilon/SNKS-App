@@ -7,7 +7,7 @@ import { Cart } from '../../components/Cart';
 export const CartPage = (props: RouteComponentProps) => {
     return (
         <Page title={'SNKS | CART'} withHeader={true} withFooter={true} withInnerBlock={true} {...props}>
-            <Cart />
+            <Cart {...props}/>
         </Page>
     )
 }

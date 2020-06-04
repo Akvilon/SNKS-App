@@ -4,19 +4,20 @@ import useStyles from './CartItem.styles';
 import { Product } from '../../models/Product';
 
 type CartItemProps = {
-    cartItem: Product
+    cartItem: Product,
+    onCartItemClick: (id: string) => void
 }
 
-const CartItem: React.FC<CartItemProps> = ({cartItem}) => {
+const CartItem: React.FC<CartItemProps> = ({cartItem, onCartItemClick}) => {
     const theme = useTheme();
     const classes = useStyles(theme)
     
     return (
-        <div className={classes.cartItem}>
+        <div className={classes.cartItem} onClick={() => onCartItemClick(cartItem.id)}>
             <div>
                 <img src={cartItem.media.smallImageUrl} alt="sneaker image"/>
             </div>
-            <div>{cartItem.title.toLowerCase()}</div>
+            <div>{cartItem.title.toUpperCase()}</div>
             <div>${cartItem.retailPrice}</div>
         </div>
     )

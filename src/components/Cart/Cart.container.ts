@@ -1,28 +1,32 @@
 import { Cart } from "./Cart";
 import { connect } from "react-redux";
-import { getCartListSelector, getCartList } from "../../store/cart";
+import { getCartListSelector, getCartList, deleteCartItem, getTotalPriceSelector } from "../../store/cart";
 import { AppState } from "../../store";
 import { Dispatch } from "redux";
 import { Action } from "../../store/types";
 import { Product } from "../../models/Product";
 
 type StateProps = {
-    cartList: Array<Product> | undefined
+    cartList: Array<Product> | undefined,
+    totalPrice: number
 }
 
 type DispatchProps = {
-    getCartList: () => void
+    getCartList: () => void,
+    deleteCartItem: (id: string) => void,
 }
 
 const mapStateToProps = (state: AppState): StateProps => {
     return {
-        cartList: getCartListSelector(state)
+        cartList: getCartListSelector(state),
+        totalPrice: getTotalPriceSelector(state)
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<Action<any>>): DispatchProps => {
     return {
-        getCartList: () => dispatch(getCartList())
+        getCartList: () => dispatch(getCartList()),
+        deleteCartItem: (id: string) => dispatch(deleteCartItem(id))
     }
 }
 

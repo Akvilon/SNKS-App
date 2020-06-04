@@ -13,7 +13,7 @@ type PageProps = {
   withInnerBlock?: boolean;
 };
 
-export const Page: React.FC<PageProps> = ({ title, children, withHeader, withInnerBlock, withFooter, ...props }) => {
+export const Page: React.FC<PageProps & RouteComponentProps> = ({ title, children, withHeader, withInnerBlock, withFooter, ...props }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 

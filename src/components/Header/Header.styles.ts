@@ -5,7 +5,9 @@ import {
     getMainShadowStyle,
     getTextStyle,
     getTextHoverStyle,
-    getBorderStyle
+    getBorderStyle,
+    getContrastTextStyle,
+    getContrastBackgroundStyle
 } from "../../styles/selectors.styles";
 
 export default createUseStyles((theme: Theme) => ({
@@ -13,6 +15,7 @@ export default createUseStyles((theme: Theme) => ({
         display: 'flex',
         width: '100%',
         height: '80px',
+        minHeight: '80px',
         background: getBackgroundStyle(theme),
         boxShadow: getMainShadowStyle(theme),
     },
@@ -38,6 +41,7 @@ export default createUseStyles((theme: Theme) => ({
             fontWeight: 'bold',
             color: getTextStyle(theme),
             transition: '.3s',
+            position: 'relative',
             '&:hover': {
                 color: getTextHoverStyle(theme),
                 transition: '.3s',
@@ -54,6 +58,7 @@ export default createUseStyles((theme: Theme) => ({
             fontWeight: 'bold',
             color: getTextHoverStyle(theme),
             transition: '.3s',
+            position: 'relative',
         },
     },
     profileLink: {
@@ -70,7 +75,20 @@ export default createUseStyles((theme: Theme) => ({
         borderLeft: `1px solid ${getTextStyle(theme)}`
     },
     cartProductsAmount: {
-
+        height: '20px',
+        width: '20px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        top: '25%',
+        right: '18px',
+        background: getContrastBackgroundStyle(theme),
+        borderRadius: '100%',
+        '& span': {
+            fontSize: '0.750rem',
+            color: getContrastTextStyle(theme)
+        }
     }
 }))
 

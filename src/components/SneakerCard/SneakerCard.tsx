@@ -31,7 +31,6 @@ const SneakerCard: React.FC<OwnProps & RouteComponentProps> = ({ sneaker, getSne
     }, [])
 
     const renderSneaker = (sneaker: Sneaker) => {
-        console.log('sneaker',sneaker)
         return (
             <div className={classes.sneakerCard}>
                 <div className={classes.sneakerCardImg}>
