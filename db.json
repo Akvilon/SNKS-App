@@ -5,68 +5,8 @@
       "name": "Eugen",
       "email": "eugen.pavlov@gmail.com",
       "password": "1",
-      "isSignedIn": false
-    },
-    {
-      "name": "Roma",
-      "email": "roma@roma.com",
-      "password": "1",
-      "isSignedIn": true,
-      "id": 2
+      "isSignedIn": true
     }
   ],
-  "cartList": [
-    {
-      "id": "b33ac7d4-b97b-407c-91bf-dba8d6a440f4",
-      "brand": "Nike",
-      "colorway": "White/Particle Grey-Hyper Grape",
-      "gender": "women",
-      "retailPrice": 140,
-      "title": "Nike Air Max 90 Recraft Hyper Grape (W)",
-      "year": 2020,
-      "media": {
-        "imageUrl": "https://stockx.imgix.net/Nike-Air-Max-90-Recraft-Hyper-Grape-W-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1580325806",
-        "smallImageUrl": "https://stockx.imgix.net/Nike-Air-Max-90-Recraft-Hyper-Grape-W-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1580325806"
-      }
-    },
-    {
-      "id": "7b33329e-6a10-4e19-9ac6-e745772f1c38",
-      "brand": "Jordan",
-      "colorway": "Black/Metallic Gold",
-      "gender": "men",
-      "retailPrice": 200,
-      "title": "Jordan 6 Retro DMP (2020)",
-      "year": 2020,
-      "media": {
-        "imageUrl": "https://stockx.imgix.net/Air-Jordan-6-Retro-DMP-2020-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1581110770",
-        "smallImageUrl": "https://stockx.imgix.net/Air-Jordan-6-Retro-DMP-2020-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1581110770"
-      }
-    },
-    {
-      "id": "3b45d01a-95ad-44a8-91cc-6c6f16a2ce42",
-      "brand": "Jordan",
-      "colorway": "Navy/Flint Grey-White-University Blue",
-      "gender": "men",
-      "retailPrice": 190,
-      "title": "Jordan 13 Retro Flint (2020)",
-      "year": 2020,
-      "media": {
-        "imageUrl": "https://stockx.imgix.net/Air-Jordan-13-Retro-Flint-2020.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1585933711",
-        "smallImageUrl": "https://stockx.imgix.net/Air-Jordan-13-Retro-Flint-2020.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1585933711"
-      }
-    },
-    {
-      "id": "9c076e7d-0183-441b-90c9-e8442a41ca79",
-      "brand": "Jordan",
-      "colorway": "Fire Red/Fire Red-Cement Grey-Black",
-      "gender": "men",
-      "retailPrice": 200,
-      "title": "Jordan 3 Retro SE Unite Fire Red",
-      "year": 2020,
-      "media": {
-        "imageUrl": "https://stockx.imgix.net/Air-Jordan-3-Retro-SE-Fire-Red-Product-Back.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1579888884",
-        "smallImageUrl": "https://stockx.imgix.net/Air-Jordan-3-Retro-SE-Fire-Red-Product-Back.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1579888884"
-      }
-    }
-  ]
+  "purhasedGoods": []
 }

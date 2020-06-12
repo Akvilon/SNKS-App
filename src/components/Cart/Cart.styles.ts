@@ -1,5 +1,5 @@
 import { createUseStyles } from "react-jss";
-import { Theme } from "../../styles";
+import { Theme, getTextStyle } from "../../styles";
 
 
 
@@ -19,6 +19,7 @@ export default createUseStyles((theme: Theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
+        marginBottom: '30px',
         '& h2': {
             fontSize: '2rem'
         },
@@ -30,5 +31,38 @@ export default createUseStyles((theme: Theme) => ({
             marginLeft: '30px',
             maxWidth: '120px'
         }
+    },
+    cartModalText: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& p': {
+            padding: '15px 0px'
+        }
+    },
+    cartModalTextTitle: {
+        display: 'flex',
+        alignItems: 'center',
+        '& h2:last-child': {
+            paddingLeft: '15px',
+        }
+    },
+    cartModalButtons: {
+        display: 'flex',
+        justifyContent: 'center',
+        '& button': {
+            maxWidth: '60px'
+        },
+        '& button:last-child': {
+            marginLeft: '15px'
+        }
+    },
+    emptyCart: {
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: getTextStyle(theme),
+        fontSize: '2rem'
     }
 }))

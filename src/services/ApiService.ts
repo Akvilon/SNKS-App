@@ -159,6 +159,7 @@ export class ApiService {
     }
 
     public static getCartList = async () => {
+        console.log('GET')
         try {
             const response = await axios.get<Array<Product>>(`${CONST.default.jsonServerUrl}/cartList`);
             return await response.data;
@@ -194,6 +195,16 @@ export class ApiService {
     public static deleteCartItem = async (id: string) => {
         try {
             const response = await axios.delete<Product>(`${CONST.default.jsonServerUrl}/cartList/${id}`);
+            return await response.data;
+        }
+        catch (e) {
+            throw e;
+        }
+    }
+
+    public static cleanCartList = async () => {
+        try {
+            const response = await axios.patch<Product>(`${CONST.default.jsonServerUrl}/cartList`, []);
             return await response.data;
         }
         catch (e) {

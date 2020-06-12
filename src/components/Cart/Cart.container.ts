@@ -1,6 +1,6 @@
 import { Cart } from "./Cart";
 import { connect } from "react-redux";
-import { getCartListSelector, getCartList, deleteCartItem, getTotalPriceSelector } from "../../store/cart";
+import { getCartListSelector, getCartList, deleteCartItem, getTotalPriceSelector, cleanCartList } from "../../store/cart";
 import { AppState } from "../../store";
 import { Dispatch } from "redux";
 import { Action } from "../../store/types";
@@ -13,6 +13,7 @@ type StateProps = {
 
 type DispatchProps = {
     getCartList: () => void,
+    cleanCartList: () => void,
     deleteCartItem: (id: string) => void,
 }
 
@@ -26,7 +27,8 @@ const mapStateToProps = (state: AppState): StateProps => {
 const mapDispatchToProps = (dispatch: Dispatch<Action<any>>): DispatchProps => {
     return {
         getCartList: () => dispatch(getCartList()),
-        deleteCartItem: (id: string) => dispatch(deleteCartItem(id))
+        deleteCartItem: (id: string) => dispatch(deleteCartItem(id)),
+        cleanCartList: () => dispatch(cleanCartList())
     }
 }
 

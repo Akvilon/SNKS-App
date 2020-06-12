@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps & RouteComponentProps> = ({ cartList, getCart
                 <div key={index} className={props.location.pathname !== link.path ? classes.link : classes.active}>
                   <Link to={link.path}>
                     <i className={link.icon}></i>
-                    {cartList ? <div className={classes.cartProductsAmount}><span>{cartList.length}</span></div> : null}
+                    {cartList && cartList.length > 0 ? <div className={classes.cartProductsAmount}><span>{cartList.length}</span></div> : null}
                   </Link>
                 </div>
 

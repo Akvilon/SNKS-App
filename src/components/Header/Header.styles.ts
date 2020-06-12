@@ -7,7 +7,8 @@ import {
     getTextHoverStyle,
     getBorderStyle,
     getContrastTextStyle,
-    getContrastBackgroundStyle
+    getContrastBackgroundStyle,
+    getBtnHoverBackgroundStyle
 } from "../../styles/selectors.styles";
 
 export default createUseStyles((theme: Theme) => ({
@@ -83,7 +84,7 @@ export default createUseStyles((theme: Theme) => ({
         position: 'absolute',
         top: '25%',
         right: '18px',
-        background: getContrastBackgroundStyle(theme),
+        background: getBtnHoverBackgroundStyle(theme),
         borderRadius: '100%',
         '& span': {
             fontSize: '0.750rem',

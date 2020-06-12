@@ -6,9 +6,13 @@ export const getCartList = () => ({
 	type: ACTION_TYPES.GET_CART_LIST
 })
 
-export const setCartList = (list: Array<Product>) => ({
+export const setCartList = (list: Array<Product> | undefined) => ({
 	type: ACTION_TYPES.SET_CART_LIST,
 	payload: list
+})
+
+export const cleanCartList = () => ({
+	type: ACTION_TYPES.CLEAN_CART_LIST,
 })
 
 export const addCartItem = (item: Product) => ({
